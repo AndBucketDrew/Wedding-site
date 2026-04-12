@@ -4,9 +4,9 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 const NAV_LINKS = [
-  { label: 'Portfolio', to: '/posts' },
-  { label: 'About',     to: '/#about' },
-  { label: 'Contact',   to: '/contact' },
+  { label: 'Galerija', to: '/posts' },
+  { label: 'O nama',     to: '/#about' },
+  { label: 'Kontakt',   to: '/contact' },
 ]
 
 export function Navbar() {

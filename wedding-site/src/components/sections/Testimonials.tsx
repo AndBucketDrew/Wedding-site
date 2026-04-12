@@ -34,8 +34,8 @@ export function Testimonials() {
     <section className="py-28 px-6 bg-[#F8F5F0]">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         <SectionHeading
-          eyebrow="Kind Words"
-          title="What Clients Say"
+          eyebrow="Recenzije"
+          title="Iskustva naših klijenata"
         />
 
         <div className="grid md:grid-cols-3 gap-8">

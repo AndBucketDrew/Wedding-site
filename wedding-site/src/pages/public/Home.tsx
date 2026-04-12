@@ -1,8 +1,9 @@
 import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
-import { AboutIntro } from '@/components/sections/AboutIntro'
+import { GalleryShowcase } from '@/components/sections/GalleryShowcase'
 import { FeaturedPosts } from '@/components/sections/FeaturedPosts'
 import { Testimonials } from '@/components/sections/Testimonials'
+import { Packages } from '@/components/sections/Packages'
 import { ContactCTA } from '@/components/sections/ContactCTA'
 
 export function Home() {
@@ -10,14 +11,15 @@ export function Home() {
     <Layout>
       <Hero
         image="https://picsum.photos/seed/dzejlan-hero/1920/1080"
-        eyebrow="Photography & Film Studio"
-        title={'Every Frame\nTells a Story'}
-        subtitle="We craft cinematic memories that last a lifetime."
-        ctaLabel="View Portfolio"
+        eyebrow="HALILAGIĆ WEDDINGS"
+        title={'Vaša priča\nNaša fotografija'}
+        subtitle="Stvaramo filmske uspomene koje traju cijeli život."
+        ctaLabel="Galerija"
         ctaTo="/posts"
       />
-      <AboutIntro />
+      <GalleryShowcase />
       <FeaturedPosts />
+      <Packages />
       <Testimonials />
       <ContactCTA />
     </Layout>

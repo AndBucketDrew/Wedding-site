@@ -7,6 +7,7 @@ export interface Post {
   description: string
   content: string
   coverImage: string       // URL — Storage or placeholder
+  images: string[]         // Gallery images for the post
   slug: string
   status: PostStatus
   createdAt: string | null
@@ -37,3 +38,14 @@ export interface Testimonial {
   quote: string
   avatar: string
 }
+
+// ─── Gallery ──────────────────────────────────────────────────────────────────
+export interface GalleryImage {
+  id: string
+  url: string
+  alt: string
+  order: number
+  createdAt: string | null
+}
+
+export type GalleryImageInput = Omit<GalleryImage, 'id' | 'createdAt'>

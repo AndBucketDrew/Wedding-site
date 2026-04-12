@@ -1,13 +1,14 @@
 import type { ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, Images, LogOut, ExternalLink } from 'lucide-react'
+import { LayoutDashboard, BookImage, GalleryHorizontal, LogOut, ExternalLink } from 'lucide-react'
 import { signOut } from '@/services/auth.service'
 import { useAuth } from '@/hooks/useAuth'
 import { cn } from '@/utils/cn'
 
 const NAV = [
   { label: 'Dashboard', to: '/admin/dashboard', icon: LayoutDashboard },
-  { label: 'Posts',     to: '/admin/posts',     icon: Images },
+  { label: 'Posts',     to: '/admin/posts',     icon: BookImage },
+  { label: 'Gallery',   to: '/admin/gallery',   icon: GalleryHorizontal },
 ]
 
 export function AdminLayout({ children }: { children: ReactNode }) {

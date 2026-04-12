@@ -11,6 +11,15 @@ service firebase.storage {
                    && request.resource.contentType.matches('image/.*');
     }
 
+    // ── Gallery images ──────────────────────────────────────────────────────────
+    // Anyone can read; only authenticated users can upload/delete.
+    match /gallery/{imageFile} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.resource.size < 10 * 1024 * 1024  // 10 MB max
+                   && request.resource.contentType.matches('image/.*');
+    }
+
     // Default deny
     match /{allPaths=**} {
       allow read, write: if false;

@@ -4,10 +4,17 @@ service cloud.firestore {
 
     // ── Posts ──────────────────────────────────────────────────────────────────
     // Anyone can read published posts; only authenticated users can write.
-    // In a real system, restrict writes further with custom claims for "admin" role.
     match /posts/{postId} {
       allow read: if resource.data.status == 'published'
                   || request.auth != null;
+      allow create, update, delete: if request.auth != null;
+    }
+
+    // ── Gallery ────────────────────────────────────────────────────────────────
+    // Anyone can read (displayed on the public home page).
+    // Only authenticated users can add, update or delete images.
+    match /gallery/{imageId} {
+      allow read: if true;
       allow create, update, delete: if request.auth != null;
     }
 

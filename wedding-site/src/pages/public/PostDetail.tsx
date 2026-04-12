@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/ui/FadeIn'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { getPostBySlug } from '@/services/posts.service'
 import type { Post } from '@/types'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const PLACEHOLDER: Post = {
   id: 'placeholder',
@@ -18,6 +18,14 @@ We spent a morning exploring the industrial edges of the city, letting the avail
 
 The result is a series that feels alive — each image a quiet moment pulled from an otherwise rushing world.`,
   coverImage: 'https://picsum.photos/seed/post-detail-hero/1920/900',
+  images: [
+    'https://picsum.photos/seed/gallery-1/800/1000',
+    'https://picsum.photos/seed/gallery-2/800/600',
+    'https://picsum.photos/seed/gallery-3/800/800',
+    'https://picsum.photos/seed/gallery-4/800/600',
+    'https://picsum.photos/seed/gallery-5/800/1200',
+    'https://picsum.photos/seed/gallery-6/800/700',
+  ],
   status: 'published',
   createdAt: null,
   updatedAt: null,
@@ -25,8 +33,9 @@ The result is a series that feels alive — each image a quiet moment pulled fro
 
 export function PostDetail() {
   const { slug } = useParams<{ slug: string }>()
-  const [post,    setPost]    = useState<Post | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [post,       setPost]       = useState<Post | null>(null)
+  const [loading,    setLoading]    = useState(true)
+  const [lightbox,   setLightbox]   = useState<number | null>(null)
 
   useEffect(() => {
     if (!slug) return
@@ -94,23 +103,73 @@ export function PostDetail() {
         </FadeIn>
       </article>
 
-      {/* Related posts placeholder */}
-      <section className="py-20 px-6 bg-cream">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-serif text-3xl text-charcoal mb-10">More Work</h2>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[1, 2, 3].map(n => (
-              <Link key={n} to="/posts" className="group block img-zoom overflow-hidden">
-                <img
-                  src={`https://picsum.photos/seed/related-${n}/800/600`}
-                  alt={`Related project ${n}`}
-                  className="w-full aspect-4/3 object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </Link>
-            ))}
+      {/* Photo gallery */}
+      {p.images.length > 0 && (
+        <section className="py-20 px-6 bg-cream">
+          <div className="max-w-7xl mx-auto">
+            <FadeIn>
+              <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold block mb-3">Gallery</span>
+              <h2 className="font-serif text-3xl text-charcoal mb-10">Wedding Photos</h2>
+            </FadeIn>
+            <div className="columns-2 md:columns-3 gap-4 space-y-4">
+              {p.images.map((src, i) => (
+                <FadeIn key={i} delay={i * 0.05}>
+                  <button
+                    type="button"
+                    onClick={() => setLightbox(i)}
+                    className="block w-full overflow-hidden rounded-sm group cursor-zoom-in"
+                  >
+                    <img
+                      src={src}
+                      alt={`${p.title} — photo ${i + 1}`}
+                      className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </button>
+                </FadeIn>
+              ))}
+            </div>
           </div>
+        </section>
+      )}
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            onClick={e => { e.stopPropagation(); setLightbox(null) }}
+            className="absolute top-5 right-5 text-white/70 hover:text-white transition-colors cursor-pointer"
+          >
+            <X size={28} />
+          </button>
+          <button
+            type="button"
+            onClick={e => { e.stopPropagation(); setLightbox(i => i !== null && i > 0 ? i - 1 : p.images.length - 1) }}
+            className="absolute left-5 text-white/70 hover:text-white transition-colors cursor-pointer"
+          >
+            <ChevronLeft size={36} />
+          </button>
+          <img
+            src={p.images[lightbox]}
+            alt={`${p.title} — photo ${lightbox + 1}`}
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-sm"
+            onClick={e => e.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={e => { e.stopPropagation(); setLightbox(i => i !== null && i < p.images.length - 1 ? i + 1 : 0) }}
+            className="absolute right-5 text-white/70 hover:text-white transition-colors cursor-pointer"
+          >
+            <ChevronRight size={36} />
+          </button>
+          <span className="absolute bottom-5 font-sans text-xs tracking-widest text-white/50">
+            {lightbox + 1} / {p.images.length}
+          </span>
         </div>
-      </section>
+      )}
     </Layout>
   )
 }

@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState, type ReactNode } from 'react'
-import { getStoredUser } from '@/services/auth.service'
+import { onAuthStateChanged, type User } from 'firebase/auth'
+import { auth } from '@/lib/firebase'
 import type { AppUser } from '@/types'
 
 interface AuthContextValue {
@@ -12,23 +13,20 @@ export const AuthContext = createContext<AuthContextValue>({
   loading: true,
 })
 
+function toAppUser(firebaseUser: User): AppUser {
+  return { uid: firebaseUser.uid, email: firebaseUser.email }
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user,    setUser]    = useState<AppUser | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Read persisted session on mount
-    setUser(getStoredUser())
-    setLoading(false)
-
-    // Sync across tabs
-    function onStorage(e: StorageEvent) {
-      if (e.key === 'dzejlan_admin_user') {
-        setUser(getStoredUser())
-      }
-    }
-    window.addEventListener('storage', onStorage)
-    return () => window.removeEventListener('storage', onStorage)
+    const unsub = onAuthStateChanged(auth, firebaseUser => {
+      setUser(firebaseUser ? toAppUser(firebaseUser) : null)
+      setLoading(false)
+    })
+    return unsub
   }, [])
 
   return (

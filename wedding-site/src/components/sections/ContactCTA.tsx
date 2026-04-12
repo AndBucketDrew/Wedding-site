@@ -18,7 +18,7 @@ export function ContactCTA() {
           transition={{ duration: 0.7 }}
           className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A96E]"
         >
-          Let's Create Together
+          Stvarajmo zajedno
         </motion.span>
 
         <motion.h2
@@ -28,9 +28,9 @@ export function ContactCTA() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-serif text-4xl md:text-6xl font-bold leading-tight"
         >
-          Your Story Deserves
+          Vaša priča zaslužuje
           <br />
-          <em className="not-italic text-[#C9A96E]">to Be Told</em>
+          <em className="not-italic text-[#C9A96E]">da bude ispričana</em>
         </motion.h2>
 
         <motion.p
@@ -40,8 +40,7 @@ export function ContactCTA() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="font-sans text-white/70 text-base max-w-lg"
         >
-          Whether it's a wedding, an intimate portrait session, or a commercial project —
-          we'd love to hear about your vision.
+          Nije bitno da li je vjenčanje ili neki drugi događaj, želimo čuti vašu viziju i pretvoriti je u stvarnost.
         </motion.p>
 
         <motion.div
@@ -55,13 +54,13 @@ export function ContactCTA() {
             to="/contact"
             className="font-sans text-xs tracking-[0.25em] uppercase bg-[#C9A96E] text-white px-10 py-4 hover:bg-[#A8843E] transition-colors duration-300"
           >
-            Get in Touch
+            Kontakt
           </Link>
           <Link
             to="/posts"
             className="font-sans text-xs tracking-[0.25em] uppercase border border-white/40 text-white px-10 py-4 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all duration-300"
           >
-            View Portfolio
+            Galerija
           </Link>
         </motion.div>
       </div>

@@ -7,11 +7,12 @@ import { PostDetail } from '@/pages/public/PostDetail'
 import { Contact }    from '@/pages/public/Contact'
 
 // Admin pages
-import { Login }      from '@/pages/admin/Login'
-import { Dashboard }  from '@/pages/admin/Dashboard'
-import { PostsList }  from '@/pages/admin/posts/PostsList'
-import { PostCreate } from '@/pages/admin/posts/PostCreate'
-import { PostEdit }   from '@/pages/admin/posts/PostEdit'
+import { Login }          from '@/pages/admin/Login'
+import { Dashboard }      from '@/pages/admin/Dashboard'
+import { PostsList }      from '@/pages/admin/posts/PostsList'
+import { PostCreate }     from '@/pages/admin/posts/PostCreate'
+import { PostEdit }       from '@/pages/admin/posts/PostEdit'
+import { GalleryManager } from '@/pages/admin/gallery/GalleryManager'
 
 // Guard
 import { ProtectedRoute } from './ProtectedRoute'
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
   {
     path: '/admin/posts/:id/edit',
     element: <ProtectedRoute><PostEdit /></ProtectedRoute>,
+  },
+  {
+    path: '/admin/gallery',
+    element: <ProtectedRoute><GalleryManager /></ProtectedRoute>,
   },
 
   // ── Fallback ───────────────────────────────────────────────────────────────

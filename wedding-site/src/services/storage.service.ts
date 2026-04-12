@@ -1,58 +1,76 @@
-/**
- * Mock storage service — converts images to base64 and stores in localStorage.
- * Images persist across page refreshes and survive for the session.
- *
- * To switch to Firebase Storage: replace this file with the Firebase implementation.
- * The exported function signatures are identical.
- */
-
-const IMAGE_KEY_PREFIX = 'dzejlan_img_'
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage'
+import { storage } from '@/lib/firebase'
 
 /**
- * "Uploads" an image by reading it as a base64 data URL and storing it in
- * localStorage. Returns a data URL that can be used as an <img> src directly.
- * The optional `onProgress` callback is called with 0 → 100 as the file is read.
+ * Uploads an image to Firebase Storage under /posts/{filename}.
+ * Returns the public download URL.
+ * Optional `onProgress` receives 0–100.
  */
 export function uploadPostImage(
   file: File,
   onProgress?: (pct: number) => void,
 ): Promise<string> {
   return new Promise((resolve, reject) => {
-    const reader = new FileReader()
+    const filename   = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`
+    const storageRef = ref(storage, `posts/${filename}`)
+    const task       = uploadBytesResumable(storageRef, file)
 
-    reader.onprogress = e => {
-      if (e.lengthComputable) {
-        onProgress?.(Math.round((e.loaded / e.total) * 100))
-      }
-    }
-
-    reader.onload = () => {
-      const dataUrl = reader.result as string
-      const key     = `${IMAGE_KEY_PREFIX}${Date.now()}`
-      try {
-        localStorage.setItem(key, dataUrl)
-      } catch {
-        // localStorage full — fall back to in-memory object URL
-        const objUrl = URL.createObjectURL(file)
-        resolve(objUrl)
-        return
-      }
-      onProgress?.(100)
-      resolve(dataUrl)
-    }
-
-    reader.onerror = () => reject(new Error('Failed to read image file.'))
-    reader.readAsDataURL(file)
+    task.on(
+      'state_changed',
+      snapshot => {
+        const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        onProgress?.(Math.round(pct))
+      },
+      err => reject(err),
+      async () => {
+        const url = await getDownloadURL(task.snapshot.ref)
+        resolve(url)
+      },
+    )
   })
 }
 
 export async function deletePostImage(url: string): Promise<void> {
-  // Find and remove the matching localStorage entry
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i)
-    if (key?.startsWith(IMAGE_KEY_PREFIX) && localStorage.getItem(key) === url) {
-      localStorage.removeItem(key)
-      break
-    }
+  try {
+    await deleteObject(ref(storage, url))
+  } catch {
+    // Already deleted or external URL — ignore
+  }
+}
+
+/**
+ * Uploads an image to Firebase Storage under /gallery/{filename}.
+ * Returns the public download URL.
+ * Optional `onProgress` receives 0–100.
+ */
+export function uploadGalleryImage(
+  file: File,
+  onProgress?: (pct: number) => void,
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const filename   = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`
+    const storageRef = ref(storage, `gallery/${filename}`)
+    const task       = uploadBytesResumable(storageRef, file)
+
+    task.on(
+      'state_changed',
+      snapshot => {
+        const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        onProgress?.(Math.round(pct))
+      },
+      err => reject(err),
+      async () => {
+        const url = await getDownloadURL(task.snapshot.ref)
+        resolve(url)
+      },
+    )
+  })
+}
+
+export async function deleteGalleryImage(url: string): Promise<void> {
+  try {
+    await deleteObject(ref(storage, url))
+  } catch {
+    // Already deleted or external URL — ignore
   }
 }

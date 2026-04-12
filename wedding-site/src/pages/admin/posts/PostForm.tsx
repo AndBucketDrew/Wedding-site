@@ -21,6 +21,7 @@ const EMPTY: PostInput = {
   description: '',
   content:     '',
   coverImage:  '',
+  images:      [],
   slug:        '',
   status:      'draft',
 }
@@ -36,11 +37,13 @@ function toSlug(text: string): string {
 export function PostForm({ initialValues, onSubmit, submitLabel, pageTitle }: PostFormProps) {
   const navigate = useNavigate()
   const [form,       setForm]       = useState<PostInput>({ ...EMPTY, ...initialValues })
-  const [imageFile,  setImageFile]  = useState<File | null>(null)
-  const [preview,    setPreview]    = useState<string>(initialValues?.coverImage ?? '')
-  const [uploadPct,  setUploadPct]  = useState<number | null>(null)
-  const [submitting, setSubmitting] = useState(false)
-  const [error,      setError]      = useState<string | null>(null)
+  const [imageFile,    setImageFile]    = useState<File | null>(null)
+  const [preview,      setPreview]      = useState<string>(initialValues?.coverImage ?? '')
+  const [uploadPct,    setUploadPct]    = useState<number | null>(null)
+  const [galleryFiles, setGalleryFiles] = useState<File[]>([])
+  const [galleryPreviews, setGalleryPreviews] = useState<string[]>(initialValues?.images ?? [])
+  const [submitting,   setSubmitting]   = useState(false)
+  const [error,        setError]        = useState<string | null>(null)
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value } = e.target
@@ -65,6 +68,24 @@ export function PostForm({ initialValues, onSubmit, submitLabel, pageTitle }: Po
     setForm(prev => ({ ...prev, coverImage: '' }))
   }
 
+  function handleGalleryPick(e: ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? [])
+    if (!files.length) return
+    setGalleryFiles(prev => [...prev, ...files])
+    setGalleryPreviews(prev => [...prev, ...files.map(f => URL.createObjectURL(f))])
+    // reset input so the same file can be re-selected if removed then re-added
+    e.target.value = ''
+  }
+
+  function removeGalleryImage(index: number) {
+    setGalleryPreviews(prev => prev.filter((_, i) => i !== index))
+    // If the index falls within newly added files (after existing saved URLs), remove it too
+    const existingCount = (initialValues?.images ?? []).length
+    if (index >= existingCount) {
+      setGalleryFiles(prev => prev.filter((_, i) => i !== index - existingCount))
+    }
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setSubmitting(true)
@@ -73,13 +94,22 @@ export function PostForm({ initialValues, onSubmit, submitLabel, pageTitle }: Po
     try {
       let coverImage = form.coverImage
 
-      // Upload new image if selected
       if (imageFile) {
         coverImage = await uploadPostImage(imageFile, pct => setUploadPct(pct))
         setUploadPct(null)
       }
 
-      await onSubmit({ ...form, coverImage })
+      // Upload any new gallery images; existing URLs are already in galleryPreviews
+      const existingUrls = (initialValues?.images ?? [])
+      const uploadedUrls = await Promise.all(
+        galleryFiles.map(f => uploadPostImage(f))
+      )
+      const images = [
+        ...galleryPreviews.filter(p => existingUrls.includes(p)),
+        ...uploadedUrls,
+      ]
+
+      await onSubmit({ ...form, coverImage, images })
       navigate('/admin/posts')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.')
@@ -140,6 +170,36 @@ export function PostForm({ initialValues, onSubmit, submitLabel, pageTitle }: Po
                 />
               </label>
             )}
+          </div>
+
+          {/* Gallery images */}
+          <div>
+            <label className={labelCls}>Gallery Images</label>
+            <div className="grid grid-cols-3 gap-3">
+              {galleryPreviews.map((src, i) => (
+                <div key={i} className="relative aspect-square">
+                  <img src={src} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover rounded-sm" />
+                  <button
+                    type="button"
+                    onClick={() => removeGalleryImage(i)}
+                    className="absolute top-1.5 right-1.5 bg-white/90 rounded-full p-1 hover:bg-red-50 transition-colors cursor-pointer"
+                  >
+                    <X size={14} className="text-red-500" />
+                  </button>
+                </div>
+              ))}
+              <label className="flex flex-col items-center justify-center aspect-square border-2 border-dashed border-mist cursor-pointer hover:border-gold transition-colors rounded-sm gap-2">
+                <ImagePlus size={22} className="text-[#C9A96E]" />
+                <span className="font-sans text-[10px] text-mid">Add photos</span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="sr-only"
+                  onChange={handleGalleryPick}
+                />
+              </label>
+            </div>
           </div>
 
           {/* Title */}
