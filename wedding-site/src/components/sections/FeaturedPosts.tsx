@@ -10,7 +10,7 @@ export function FeaturedPosts() {
 
   if (loading) {
     return (
-      <section className="py-28 px-6 bg-white">
+      <section className="py-12 md:py-28 px-6 bg-white">
         <div className="max-w-7xl mx-auto flex justify-center">
           <LoadingSpinner />
         </div>
@@ -21,7 +21,7 @@ export function FeaturedPosts() {
   if (display.length === 0) return null
 
   return (
-    <section className="py-28 px-6 bg-white">
+    <section className="py-12 md:py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         <SectionHeading
           eyebrow="Blogovi"

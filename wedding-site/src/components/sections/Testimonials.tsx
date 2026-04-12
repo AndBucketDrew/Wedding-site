@@ -7,7 +7,7 @@ export function Testimonials() {
   const { testimonials, loading } = useTestimonials()
 
   return (
-    <section className="py-28 px-6 bg-cream">
+    <section className="py-12 md:py-28 px-6 bg-cream">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         <SectionHeading
           eyebrow="Recenzije"

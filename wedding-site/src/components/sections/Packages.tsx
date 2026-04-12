@@ -111,7 +111,7 @@ export function Packages() {
       : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-6'
 
   return (
-    <section className="py-28 px-6 bg-[#F8F5F0]">
+    <section className="py-12 md:py-28 px-6 bg-[#F8F5F0]">
       <div className="max-w-7xl mx-auto flex flex-col gap-14">
 
         {/* Heading + region selector */}

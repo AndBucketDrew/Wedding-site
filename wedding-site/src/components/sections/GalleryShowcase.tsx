@@ -7,7 +7,7 @@ export function GalleryShowcase() {
   const { images, loading } = useGallery()
 
   return (
-    <section id="about" className="pt-10 pb-28 md:py-28 px-6 bg-[#F8F5F0]">
+    <section id="about" className="py-12 md:py-28 px-6 bg-[#F8F5F0]">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
 
         {/* ── Intro text ── */}
