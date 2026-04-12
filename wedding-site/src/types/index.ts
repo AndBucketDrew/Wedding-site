@@ -37,7 +37,10 @@ export interface Testimonial {
   role: string
   quote: string
   avatar: string
+  createdAt: string | null
 }
+
+export type TestimonialInput = Omit<Testimonial, 'id' | 'createdAt'>
 
 // ─── Gallery ──────────────────────────────────────────────────────────────────
 export interface GalleryImage {

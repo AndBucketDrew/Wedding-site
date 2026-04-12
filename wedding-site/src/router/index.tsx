@@ -12,7 +12,8 @@ import { Dashboard }      from '@/pages/admin/Dashboard'
 import { PostsList }      from '@/pages/admin/posts/PostsList'
 import { PostCreate }     from '@/pages/admin/posts/PostCreate'
 import { PostEdit }       from '@/pages/admin/posts/PostEdit'
-import { GalleryManager } from '@/pages/admin/gallery/GalleryManager'
+import { GalleryManager }       from '@/pages/admin/gallery/GalleryManager'
+import { TestimonialsManager } from '@/pages/admin/testimonials/TestimonialsManager'
 
 // Guard
 import { ProtectedRoute } from './ProtectedRoute'
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
   {
     path: '/admin/gallery',
     element: <ProtectedRoute><GalleryManager /></ProtectedRoute>,
+  },
+  {
+    path: '/admin/testimonials',
+    element: <ProtectedRoute><TestimonialsManager /></ProtectedRoute>,
   },
 
   // ── Fallback ───────────────────────────────────────────────────────────────

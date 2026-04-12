@@ -18,6 +18,14 @@ service cloud.firestore {
       allow create, update, delete: if request.auth != null;
     }
 
+    // ── Testimonials ───────────────────────────────────────────────────────────
+    // Anyone can read (displayed on the public home page).
+    // Only authenticated users can add, update or delete testimonials.
+    match /testimonials/{testimonialId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+
     // ── Default: deny everything else ──────────────────────────────────────────
     match /{document=**} {
       allow read, write: if false;
