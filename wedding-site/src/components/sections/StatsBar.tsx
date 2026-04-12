@@ -1,0 +1,34 @@
+import { motion } from 'framer-motion'
+
+const stats = [
+  { number: '10',   label: 'godina iskustva' },
+  { number: '200+', label: 'vjenčanja'       },
+  { number: '7',    label: 'dana dostave'    },
+]
+
+export function StatsBar() {
+  return (
+    <section className="bg-white py-14">
+      <div className="max-w-3xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="flex items-center justify-center divide-x divide-stone-200"
+        >
+          {stats.map(({ number, label }) => (
+            <div key={label} className="flex-1 flex flex-col items-center px-8 gap-1">
+              <span className="font-serif text-5xl md:text-6xl font-bold text-stone-900 leading-none">
+                {number}
+              </span>
+              <span className="font-sans text-xs tracking-[0.2em] uppercase text-[#C9A96E] mt-1">
+                {label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}

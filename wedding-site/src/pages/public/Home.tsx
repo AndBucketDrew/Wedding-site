@@ -1,6 +1,7 @@
 import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
 import { GalleryShowcase } from '@/components/sections/GalleryShowcase'
+import { StatsBar } from '@/components/sections/StatsBar'
 import { FeaturedPosts } from '@/components/sections/FeaturedPosts'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { Packages } from '@/components/sections/Packages'
@@ -17,6 +18,7 @@ export function Home() {
         ctaLabel="Galerija"
         ctaTo="/posts"
       />
+      <StatsBar />
       <GalleryShowcase />
       <FeaturedPosts />
       <Packages />
