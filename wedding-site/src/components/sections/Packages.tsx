@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { PackageModal, type PackageData } from '@/components/sections/PackageModal'
 
 const REGIONS = [
   { value: 'region-1' },
@@ -12,22 +13,19 @@ const REGIONS = [
 
 type RegionValue = (typeof REGIONS)[number]['value']
 
-interface PackageData {
-  name: string
-  price: string
-  description: string
-  features: string[]
-  highlight?: boolean
-}
-
 export function Packages() {
   const { t } = useTranslation()
   const [region, setRegion] = useState<RegionValue>('region-1')
+  const [openPkg, setOpenPkg] = useState<PackageData | null>(null)
 
   const packages = t(`packages.data.${region}`, { returnObjects: true }) as PackageData[]
 
   const gridClass =
-    packages.length === 3
+    packages.length === 1
+      ? 'grid max-w-sm mx-auto gap-6'
+      : packages.length === 2
+      ? 'grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto'
+      : packages.length === 3
       ? 'grid md:grid-cols-3 gap-6'
       : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-6'
 
@@ -118,8 +116,8 @@ export function Packages() {
                     ))}
                   </ul>
 
-                  <Link
-                    to="/contact"
+                  <button
+                    onClick={() => setOpenPkg(pkg)}
                     className={`
                       mt-4 text-center font-sans text-xs tracking-[0.25em] uppercase px-6 py-3 transition-all duration-300
                       ${pkg.highlight
@@ -128,7 +126,7 @@ export function Packages() {
                     `}
                   >
                     {t('packages.bookNow')}
-                  </Link>
+                  </button>
                 </div>
               </div>
             </FadeIn>
@@ -136,6 +134,16 @@ export function Packages() {
         </div>
 
       </div>
+
+      <AnimatePresence>
+        {openPkg && (
+          <PackageModal
+            key={openPkg.name}
+            pkg={openPkg}
+            onClose={() => setOpenPkg(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }

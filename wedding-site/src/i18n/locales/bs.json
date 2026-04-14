@@ -44,6 +44,31 @@
     "mostPopular": "Najpopularnije",
     "bookNow": "Rezervišite sada",
     "onRequest": "Na upit",
+    "modal": {
+      "bookTitle": "Rezervacija paketa",
+      "step1Title": "Odaberi usluge",
+      "step2Title": "Kontakt informacije",
+      "photography": "Fotografije",
+      "photoOpt1": "1000+ foto",
+      "photoOpt2": "1500+ foto",
+      "photoOpt3": "2000+ foto",
+      "video": "Video",
+      "extrasLabel": "Dodatne usluge",
+      "next": "Dalje",
+      "back": "Nazad",
+      "close": "Zatvori",
+      "packageLabel": "Paket",
+      "extras": {
+        "dron": "Dron",
+        "niski-dim": "Niski dim",
+        "prskalice": "Prskalice",
+        "vatromet": "Vatromet",
+        "photobook": "Photobook",
+        "lazni-maticar": "Lažni matičar",
+        "printanje": "Printanje fotografija",
+        "dodatni-fotograf": "Dodatni fotograf/snimatelj"
+      }
+    },
     "regions": {
       "region-1": "Bosna i Hercegovina",
       "region-2": "Hrvatska",
@@ -52,77 +77,54 @@
     "data": {
       "region-1": [
         {
-          "name": "Essential",
-          "price": "€900",
-          "description": "Idealno za intimne ceremonije i privatna vjenčanja.",
-          "features": ["4 sata snimanja", "200+ editovanih fotografija", "Online galerija", "Pravo printanja"]
+          "name": "Unska Priča",
+          "price": "Na upit",
+          "description": "Osnovna pokrivenost s video materijalom i profesionalnim fotografijama.",
+          "features": ["Video 1h", "Cinematic trailer 3min", "1000+ editovanih fotografija", "Slikanje i snimanje dronom"]
         },
         {
-          "name": "Classic",
-          "price": "€1,400",
-          "description": "Naš najpopularniji paket za cjelodnevna vjenčanja.",
-          "features": ["8 sati snimanja", "400+ editovanih fotografija", "Online galerija", "Pravo printanja", "Pred-svadbeno snimanje"],
+          "name": "Bihaćki Ples",
+          "price": "Na upit",
+          "description": "Kompletan paket sa specijalnim efektima za nezaboravan prvi ples.",
+          "features": ["Video 2h", "Cinematic trailer 3min", "1500+ editovanih fotografija", "Slikanje i snimanje dronom", "Niski dim za prvi ples", "Prskalice za prvi ples"],
           "highlight": true
         },
         {
-          "name": "Premium",
-          "price": "€2,100",
-          "description": "Cjelodnevno snimanje sa drugim fotografom i filmom.",
-          "features": ["10 sati snimanja", "600+ editovanih fotografija", "Drugi fotograf", "Kratki filmski highlight", "Pred-svadbeno snimanje", "Premium album"]
+          "name": "Krajiški San",
+          "price": "Na upit",
+          "description": "Premijum paket sa svim specijalnim efektima i fotobookom.",
+          "features": ["Video 3h", "Cinematic trailer 3min", "2000+ editovanih fotografija", "Slikanje i snimanje dronom", "Niski dim za prvi ples i tortu", "Prskalice za prvi ples i tortu", "Photobook"]
         },
         {
-          "name": "Bespoke",
+          "name": "Po Mjeri",
           "price": "Na upit",
-          "description": "Potpuno prilagođeno višednevnim ili destinacijskim događajima.",
-          "features": ["Prilagođeni sati", "Neograničen broj fotografija", "Kompletna filmska postprodukcija", "Posvećeni tim", "Putni troškovi uključeni"]
+          "description": "Prilagođeni paket — odaberite dodatke prema vašim željama.",
+          "features": ["Slikanje", "Snimanje", "Dron", "Niski dim", "Prskalice", "Vatromet", "Photobook", "Lažni matičar", "Printanje fotografija", "Dodatni fotograf/snimatelj"],
+          "custom": true
         }
       ],
       "region-2": [
         {
-          "name": "Essential",
-          "price": "€850",
-          "description": "Idealno za manja, intimnija vjenčanja.",
-          "features": ["4 sata snimanja", "180+ editovanih fotografija", "Online galerija", "Pravo printanja"]
+          "name": "Jadranska Priča",
+          "price": "Na upit",
+          "description": "Savršen paket za primorska vjenčanja uz more.",
+          "features": ["Video 2h", "Cinematic trailer 3min", "1500+ editovanih fotografija", "Slikanje i snimanje dronom"]
         },
         {
-          "name": "Classic",
-          "price": "€1,300",
-          "description": "Solidan paket za cjelodnevno vjenčanje.",
-          "features": ["8 sati snimanja", "380+ editovanih fotografija", "Online galerija", "Pravo printanja", "Pred-svadbeno snimanje"],
+          "name": "Dalmatinski San",
+          "price": "Na upit",
+          "description": "Kompletan paket uz dalmatinsku obalu s fotobookom.",
+          "features": ["Video 3h", "Cinematic trailer 3min", "2000+ editovanih fotografija", "Slikanje i snimanje dronom", "Photobook"],
           "highlight": true
-        },
-        {
-          "name": "Premium",
-          "price": "€1,950",
-          "description": "Prošireno snimanje sa filmskim dodatkom.",
-          "features": ["10 sati snimanja", "550+ editovanih fotografija", "Drugi fotograf", "Kratki filmski highlight", "Premium album"]
         }
       ],
       "region-3": [
         {
-          "name": "Essential",
-          "price": "€1,000",
-          "description": "Snimanje ceremonije uz more, lijepo editovano.",
-          "features": ["5 sati snimanja", "220+ editovanih fotografija", "Online galerija", "Pravo printanja"]
-        },
-        {
-          "name": "Classic",
-          "price": "€1,600",
-          "description": "Cjelodnevno vjenčanje uz more — naš najtraženiji paket.",
-          "features": ["9 sati snimanja", "450+ editovanih fotografija", "Online galerija", "Pravo printanja", "Pred-svadbeno snimanje"],
-          "highlight": true
-        },
-        {
-          "name": "Premium",
-          "price": "€2,400",
-          "description": "Sve uključeno: film, album i drugi fotograf.",
-          "features": ["12 sati snimanja", "650+ editovanih fotografija", "Drugi fotograf", "Kratki filmski highlight", "Pred-svadbeno snimanje", "Luksuzni album"]
-        },
-        {
-          "name": "Destination",
+          "name": "Europski Sjaj",
           "price": "Na upit",
-          "description": "Međunarodna putovanja i višednevni paketi.",
-          "features": ["Prilagođeni raspored", "Neograničen broj fotografija", "Kompletna filmska produkcija", "Posvećeni tim", "Putovanje i smještaj uključeni"]
+          "description": "Sve uključeno za vjenčanja širom Europe s dodatnim fotografom.",
+          "features": ["Video 3h", "Cinematic trailer 3min", "2000+ editovanih fotografija", "Slikanje i snimanje dronom", "Photobook", "Dodatni fotograf/snimatelj"],
+          "highlight": true
         }
       ]
     }
@@ -163,6 +165,38 @@
       "successText": "Hvala što ste nam se javili. Kontaktiraćemo vas u roku od 24 sata.",
       "sendAnother": "Pošaljite novu poruku",
       "error": "Nešto je pošlo naopako. Molimo pokušajte ponovo ili nas kontaktirajte direktno."
+    }
+  },
+  "services": {
+    "eyebrow": "Šta nudimo",
+    "title": "Naše usluge",
+    "subtitle": "Više od fotografije i videa — svaki detalj vašeg dana, savršeno osmišljen.",
+    "learnMore": "Saznajte više",
+    "items": {
+      "niski-dim": {
+        "title": "Niski dim",
+        "description": "Čarobni oblak niskog dima koji se širi po plesnom podiju tokom prvog plesa, stvarajući bajkovitu atmosferu koju nikada nećete zaboraviti.",
+        "fullDescription": "Naš profesionalni stroj za niski dim proizvodi gust oblak koji ostaje tik uz pod — savršen za prvi ples ili rezanje torte. Za razliku od standardnih mašina za dim, niski dim se brzo rasprši i ne ispunjava prostoriju, zadržavajući vidljivost jasnom dok vašim fotografijama i videu daje eterični, kinematografski kvalitet. Efekat traje nekoliko minuta i može se ponavljati tokom večeri.",
+        "includes": ["Profesionalno postavljanje mašine za niski dim", "Operator prisutan cijelo veče", "Višestruke aktivacije tokom večeri", "U potpunosti zabilježeno u vašem foto i video paketu"]
+      },
+      "vatromet": {
+        "title": "Vatromet",
+        "description": "Osvijetlite svoju proslavu zapanjujućim vatromentom — veličanstveni finale koji osvjetljava noćno nebo i svaku uspomenu.",
+        "fullDescription": "Koordiniramo i izvodimo spektakularne vatromete prilagođene veličini vašeg događaja. Bilo da sanjate o intimnom ispraćaju s prskalicama ili punoj pirotehničkoj predstavi, mi se brinemo o svim logisticama, dozvolama i sigurnosnim zahtjevima kako biste vi mogli jednostavno uživati u trenutku. Svaki rafal je vremenski usklađen s vašom muzikom i zabilježen u punom sjaju od strane našeg foto i video tima.",
+        "includes": ["Kompletno planiranje i koordinacija pirotehničkog nastupa", "Pribavljanje dozvola", "Usklađeno s vašom muzikom", "U potpunosti zabilježeno u vašem foto i video paketu"]
+      },
+      "photobook": {
+        "title": "Photobook",
+        "description": "Luksuzni štampani photobook — ručno izrađena uspomena na vaše najljepše trenutke, dizajnirana da se prenosi kroz generacije.",
+        "fullDescription": "Naši photobookovi su premium, lay-flat štampani albumi dizajnirani u suradnji s vama. Svaka knjiga je pažljivo odabrana iz vaše svadbene galerije, prikazujući najznačajnije slike u elegantnom rasporedu vođenom pričom. Štampani na arhivskom papiru s tvrdom koričnicom, ove knjige su napravljene da traju cijeli život i duže. Dostupni u više veličina i završnih obrada.",
+        "includes": ["Zajednički proces dizajna", "Arhivski kvalitet štampe", "Lay-flat uvez", "Tvrda korica s personaliziranim naslovom", "Dostupno u više veličina"]
+      },
+      "lazni-maticar": {
+        "title": "Lažni matičar",
+        "description": "Profesionalni glumac izvodi iskrenu, personaliziranu ceremoniju — dajući vam potpunu kreativnu slobodu nad vašim zavjetima i proslavom.",
+        "fullDescription": "Lažni matičar omogućava parovima da imaju potpuno personaliziranu ceremoniju bez ograničenja zakonske registracije na dan vjenčanja. Profesionalni i iskusni glumac vodi pravu, emotivnu ceremoniju — kompletnu s prilagođenim zavjetima, čitanjima i svim ritualima koje želite — dok se vaša zakonska dokumentacija rješava odvojeno u trenutku koji vama odgovara. Ova opcija je popularna za destinacijska vjenčanja i parove koji žele potpunu kreativnu kontrolu nad scenarijem ceremonije.",
+        "includes": ["Iskusni profesionalni glumac", "Potpuno personalizirani scenarij ceremonije", "Prilagođeni zavjeti i čitanja", "Probe ceremonije", "Ceremonija u potpunosti zabilježena u vašem foto i video paketu"]
+      }
     }
   },
   "portfolio": {

@@ -3,6 +3,7 @@ import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
 import { GalleryShowcase } from '@/components/sections/GalleryShowcase'
 import { StatsBar } from '@/components/sections/StatsBar'
+import { Services } from '@/components/sections/Services'
 import { FeaturedPosts } from '@/components/sections/FeaturedPosts'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { Packages } from '@/components/sections/Packages'
@@ -23,6 +24,7 @@ export function Home() {
       />
       <StatsBar />
       <GalleryShowcase />
+      <Services />
       <FeaturedPosts />
       <Packages />
       <Testimonials />

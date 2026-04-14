@@ -44,6 +44,31 @@
     "mostPopular": "Most Popular",
     "bookNow": "Book Now",
     "onRequest": "On request",
+    "modal": {
+      "bookTitle": "Book Package",
+      "step1Title": "Choose Services",
+      "step2Title": "Your Details",
+      "photography": "Photography",
+      "photoOpt1": "1000+ photos",
+      "photoOpt2": "1500+ photos",
+      "photoOpt3": "2000+ photos",
+      "video": "Video",
+      "extrasLabel": "Additional Services",
+      "next": "Continue",
+      "back": "Back",
+      "close": "Close",
+      "packageLabel": "Package",
+      "extras": {
+        "dron": "Drone",
+        "niski-dim": "Low Fog",
+        "prskalice": "Sparklers",
+        "vatromet": "Fireworks",
+        "photobook": "Photobook",
+        "lazni-maticar": "Fake Officiant",
+        "printanje": "Photo Printing",
+        "dodatni-fotograf": "Additional Photographer"
+      }
+    },
     "regions": {
       "region-1": "Bosnia & Herzegovina",
       "region-2": "Croatia",
@@ -52,77 +77,54 @@
     "data": {
       "region-1": [
         {
-          "name": "Essential",
-          "price": "€900",
-          "description": "Perfect for intimate ceremonies and elopements.",
-          "features": ["4 hours coverage", "200+ edited photos", "Online gallery", "Print release"]
+          "name": "Unska Priča",
+          "price": "On request",
+          "description": "Essential coverage with video and professional photography.",
+          "features": ["1h video", "3min cinematic trailer", "1000+ edited photos", "Photography & drone footage"]
         },
         {
-          "name": "Classic",
-          "price": "€1,400",
-          "description": "Our most popular package for full-day weddings.",
-          "features": ["8 hours coverage", "400+ edited photos", "Online gallery", "Print release", "Engagement session"],
+          "name": "Bihaćki Ples",
+          "price": "On request",
+          "description": "Complete package with special effects for an unforgettable first dance.",
+          "features": ["2h video", "3min cinematic trailer", "1500+ edited photos", "Photography & drone footage", "Low fog for first dance", "Sparklers for first dance"],
           "highlight": true
         },
         {
-          "name": "Premium",
-          "price": "€2,100",
-          "description": "Full-day coverage with second shooter and film.",
-          "features": ["10 hours coverage", "600+ edited photos", "Second shooter", "Short film highlight", "Engagement session", "Premium album"]
+          "name": "Krajiški San",
+          "price": "On request",
+          "description": "Premium package with all special effects and a photobook.",
+          "features": ["3h video", "3min cinematic trailer", "2000+ edited photos", "Photography & drone footage", "Low fog for first dance & cake", "Sparklers for first dance & cake", "Photobook"]
         },
         {
           "name": "Bespoke",
           "price": "On request",
-          "description": "Fully tailored to multi-day or destination events.",
-          "features": ["Custom hours", "Unlimited photos", "Full film edit", "Dedicated team", "Travel included"]
+          "description": "Fully custom package — choose the add-ons that match your vision.",
+          "features": ["Photography", "Videography", "Drone", "Low fog", "Sparklers", "Fireworks", "Photobook", "Fake officiant", "Photo printing", "Additional photographer/videographer"],
+          "custom": true
         }
       ],
       "region-2": [
         {
-          "name": "Essential",
-          "price": "€850",
-          "description": "Ideal for smaller, more intimate ceremonies.",
-          "features": ["4 hours coverage", "180+ edited photos", "Online gallery", "Print release"]
+          "name": "Jadranska Priča",
+          "price": "On request",
+          "description": "Perfect package for coastal weddings by the sea.",
+          "features": ["2h video", "3min cinematic trailer", "1500+ edited photos", "Photography & drone footage"]
         },
         {
-          "name": "Classic",
-          "price": "€1,300",
-          "description": "A solid full-day wedding package.",
-          "features": ["8 hours coverage", "380+ edited photos", "Online gallery", "Print release", "Engagement session"],
+          "name": "Dalmatinski San",
+          "price": "On request",
+          "description": "Complete package along the Dalmatian coast with a photobook.",
+          "features": ["3h video", "3min cinematic trailer", "2000+ edited photos", "Photography & drone footage", "Photobook"],
           "highlight": true
-        },
-        {
-          "name": "Premium",
-          "price": "€1,950",
-          "description": "Extended coverage with cinematic film add-on.",
-          "features": ["10 hours coverage", "550+ edited photos", "Second shooter", "Short film highlight", "Premium album"]
         }
       ],
       "region-3": [
         {
-          "name": "Essential",
-          "price": "€1,000",
-          "description": "Coastal ceremony coverage, beautifully edited.",
-          "features": ["5 hours coverage", "220+ edited photos", "Online gallery", "Print release"]
-        },
-        {
-          "name": "Classic",
-          "price": "€1,600",
-          "description": "Full-day seaside wedding, our most sought-after.",
-          "features": ["9 hours coverage", "450+ edited photos", "Online gallery", "Print release", "Engagement session"],
-          "highlight": true
-        },
-        {
-          "name": "Premium",
-          "price": "€2,400",
-          "description": "All-inclusive with film, album, and second shooter.",
-          "features": ["12 hours coverage", "650+ edited photos", "Second shooter", "Short film highlight", "Engagement session", "Luxury album"]
-        },
-        {
-          "name": "Destination",
+          "name": "Europski Sjaj",
           "price": "On request",
-          "description": "International travel + multi-day event packages.",
-          "features": ["Custom schedule", "Unlimited photos", "Full film production", "Dedicated team", "Travel & stay included"]
+          "description": "All-inclusive for weddings across Europe with an additional photographer.",
+          "features": ["3h video", "3min cinematic trailer", "2000+ edited photos", "Photography & drone footage", "Photobook", "Additional photographer/videographer"],
+          "highlight": true
         }
       ]
     }
@@ -163,6 +165,38 @@
       "successText": "Thank you for reaching out. We'll be in touch within 24 hours.",
       "sendAnother": "Send another message",
       "error": "Something went wrong. Please try again or email us directly."
+    }
+  },
+  "services": {
+    "eyebrow": "What We Offer",
+    "title": "Our Services",
+    "subtitle": "Beyond photography and video — every detail of your day, perfected.",
+    "learnMore": "Learn more",
+    "items": {
+      "niski-dim": {
+        "title": "Low Fog",
+        "description": "A magical low-lying cloud of fog rolls across the dance floor for your first dance, creating a fairytale atmosphere you'll never forget.",
+        "fullDescription": "Our professional low fog machine produces a dense, ground-hugging cloud that stays close to the floor — perfect for your first dance or cake cutting. Unlike standard fog machines, low fog dissipates quickly and doesn't fill the room, keeping visibility clear while giving your photos and video an ethereal, cinematic quality. The effect lasts several minutes and can be repeated throughout the evening.",
+        "includes": ["Professional low fog machine setup", "Operator present for the full event", "Multiple activations throughout the evening", "Fully captured in your photo & video package"]
+      },
+      "vatromet": {
+        "title": "Fireworks",
+        "description": "Illuminate your celebration with a breathtaking fireworks display — a grand finale that lights up the night sky and every memory.",
+        "fullDescription": "We coordinate and execute stunning fireworks displays tailored to the scale of your event. Whether you're dreaming of an intimate sparkler send-off or a full aerial pyrotechnic show, we handle all logistics, permits, and safety requirements so you can simply enjoy the moment. Every burst is timed to your music and captured in its full glory by our photo and video team.",
+        "includes": ["Full pyrotechnic planning & coordination", "Permit handling", "Timed to your music", "Fully captured in your photo & video package"]
+      },
+      "photobook": {
+        "title": "Photobook",
+        "description": "A luxury printed photobook — a handcrafted keepsake of your most beautiful moments, designed to be passed down through generations.",
+        "fullDescription": "Our photobooks are premium, lay-flat printed albums designed in collaboration with you. Each book is carefully curated from your wedding gallery, featuring the most meaningful images in an elegant, story-driven layout. Printed on archival-quality paper with a hardcover binding, these books are built to last a lifetime and beyond. Available in multiple sizes and finishes.",
+        "includes": ["Collaborative design process", "Archival-quality print", "Lay-flat binding", "Hardcover with personalised title", "Available in multiple sizes"]
+      },
+      "lazni-maticar": {
+        "title": "Fake Officiant",
+        "description": "A professional actor performs a heartfelt, personalised ceremony — giving you complete creative freedom over your vows and celebration.",
+        "fullDescription": "A fake officiant (lažni matičar) allows couples to have a fully personalised ceremony without the constraints of a legal registration on the day. A professional and experienced actor conducts a real, emotional ceremony — complete with custom vows, readings, and any rituals you wish — while your legal paperwork is handled separately at a time that suits you. This option is popular for destination weddings and couples who want full creative control over their ceremony script.",
+        "includes": ["Experienced professional actor", "Fully personalised ceremony script", "Custom vows & readings", "Rehearsal walkthrough", "Ceremony fully captured in your photo & video package"]
+      }
     }
   },
   "portfolio": {

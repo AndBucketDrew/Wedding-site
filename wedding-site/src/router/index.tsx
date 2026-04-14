@@ -5,6 +5,7 @@ import { Home }       from '@/pages/public/Home'
 import { Posts }      from '@/pages/public/Posts'
 import { PostDetail } from '@/pages/public/PostDetail'
 import { Contact }    from '@/pages/public/Contact'
+import { Service }    from '@/pages/public/Service'
 
 // Admin pages
 import { Login }          from '@/pages/admin/Login'
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
   { path: '/posts',    element: <Posts /> },
   { path: '/posts/:slug', element: <PostDetail /> },
   { path: '/contact',  element: <Contact /> },
+  { path: '/services/:slug', element: <Service /> },
 
   // ── Admin auth ─────────────────────────────────────────────────────────────
   { path: '/admin',    element: <Login /> },
