@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "gallery": "Galerija",
+    "about": "O nama",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "admin": "Admin",
+    "copyright": "Sva prava zadržana."
+  },
+  "home": {
+    "eyebrow": "HALILAGIĆ WEDDINGS",
+    "title": "Vaša priča\nNaša fotografija",
+    "subtitle": "Stvaramo filmske uspomene koje traju cijeli život.",
+    "cta": "Galerija"
+  },
+  "stats": {
+    "experience": "godina iskustva",
+    "weddings": "vjenčanja",
+    "delivery": "dana dostave"
+  },
+  "about": {
+    "eyebrow": "O nama",
+    "titleMain": "Momenti stvaraju",
+    "titleHighlight": "Uspomene",
+    "text1": "Halilagić Weddings je profesionalni svadbeni foto i video tim sa sjedištem u Bihaću, Bosna i Hercegovina, dostupan za vjenčanja širom Europe. Sa više od 30 godina iskustva i timom od više stručnjaka, specijalizirali smo se za stvaranje najljepših trenutaka vašeg dana na romantičan i poseban način, onako kako ih srce pamti.",
+    "text2": "Svako vjenčanje nosi svoju jedinstvenu priču. Naš zadatak nije samo fotografisati, već osjetiti atmosferu, uhvatiti neizrečene emocije i pretvoriti ih u slike i filmove koji će vas vraćati u taj dan iznova i iznova. Ono što nudimo nije samo usluga, to je iskustvo. Od prvih konsultacija do konačne isporuke materijala, brinemo o svakom detalju kako bi uspomene na vaš najvažniji dan bile savršene. Bez obzira da li planirate intimno vjenčanje ili veliku svečanost, naš tim je tu da ga učinimo nezaboravnim.",
+    "cta": "Pregledajte našu galeriju"
+  },
+  "featuredPosts": {
+    "eyebrow": "Blogovi",
+    "title": "Naša Vjenčanja",
+    "subtitle": "Pogledajte selekciju naših posebnih vjenčanja iz prošle godine.",
+    "category": "Fotografija",
+    "viewAll": "Pogledajte sva vjenčanja"
+  },
+  "packages": {
+    "eyebrow": "Ponuda",
+    "title": "Naši Paketi",
+    "subtitle": "Odaberite regiju da biste vidjeli dostupne pakete.",
+    "regionLabel": "Odaberite regiju",
+    "mostPopular": "Najpopularnije",
+    "bookNow": "Rezervišite sada",
+    "onRequest": "Na upit",
+    "regions": {
+      "region-1": "Bosna i Hercegovina",
+      "region-2": "Hrvatska",
+      "region-3": "Ostatak Europe"
+    },
+    "data": {
+      "region-1": [
+        {
+          "name": "Essential",
+          "price": "€900",
+          "description": "Idealno za intimne ceremonije i privatna vjenčanja.",
+          "features": ["4 sata snimanja", "200+ editovanih fotografija", "Online galerija", "Pravo printanja"]
+        },
+        {
+          "name": "Classic",
+          "price": "€1,400",
+          "description": "Naš najpopularniji paket za cjelodnevna vjenčanja.",
+          "features": ["8 sati snimanja", "400+ editovanih fotografija", "Online galerija", "Pravo printanja", "Pred-svadbeno snimanje"],
+          "highlight": true
+        },
+        {
+          "name": "Premium",
+          "price": "€2,100",
+          "description": "Cjelodnevno snimanje sa drugim fotografom i filmom.",
+          "features": ["10 sati snimanja", "600+ editovanih fotografija", "Drugi fotograf", "Kratki filmski highlight", "Pred-svadbeno snimanje", "Premium album"]
+        },
+        {
+          "name": "Bespoke",
+          "price": "Na upit",
+          "description": "Potpuno prilagođeno višednevnim ili destinacijskim događajima.",
+          "features": ["Prilagođeni sati", "Neograničen broj fotografija", "Kompletna filmska postprodukcija", "Posvećeni tim", "Putni troškovi uključeni"]
+        }
+      ],
+      "region-2": [
+        {
+          "name": "Essential",
+          "price": "€850",
+          "description": "Idealno za manja, intimnija vjenčanja.",
+          "features": ["4 sata snimanja", "180+ editovanih fotografija", "Online galerija", "Pravo printanja"]
+        },
+        {
+          "name": "Classic",
+          "price": "€1,300",
+          "description": "Solidan paket za cjelodnevno vjenčanje.",
+          "features": ["8 sati snimanja", "380+ editovanih fotografija", "Online galerija", "Pravo printanja", "Pred-svadbeno snimanje"],
+          "highlight": true
+        },
+        {
+          "name": "Premium",
+          "price": "€1,950",
+          "description": "Prošireno snimanje sa filmskim dodatkom.",
+          "features": ["10 sati snimanja", "550+ editovanih fotografija", "Drugi fotograf", "Kratki filmski highlight", "Premium album"]
+        }
+      ],
+      "region-3": [
+        {
+          "name": "Essential",
+          "price": "€1,000",
+          "description": "Snimanje ceremonije uz more, lijepo editovano.",
+          "features": ["5 sati snimanja", "220+ editovanih fotografija", "Online galerija", "Pravo printanja"]
+        },
+        {
+          "name": "Classic",
+          "price": "€1,600",
+          "description": "Cjelodnevno vjenčanje uz more — naš najtraženiji paket.",
+          "features": ["9 sati snimanja", "450+ editovanih fotografija", "Online galerija", "Pravo printanja", "Pred-svadbeno snimanje"],
+          "highlight": true
+        },
+        {
+          "name": "Premium",
+          "price": "€2,400",
+          "description": "Sve uključeno: film, album i drugi fotograf.",
+          "features": ["12 sati snimanja", "650+ editovanih fotografija", "Drugi fotograf", "Kratki filmski highlight", "Pred-svadbeno snimanje", "Luksuzni album"]
+        },
+        {
+          "name": "Destination",
+          "price": "Na upit",
+          "description": "Međunarodna putovanja i višednevni paketi.",
+          "features": ["Prilagođeni raspored", "Neograničen broj fotografija", "Kompletna filmska produkcija", "Posvećeni tim", "Putovanje i smještaj uključeni"]
+        }
+      ]
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Recenzije",
+    "title": "Iskustva naših klijenata"
+  },
+  "contactCTA": {
+    "eyebrow": "Stvarajmo zajedno",
+    "titleMain": "Vaša priča zaslužuje",
+    "titleHighlight": "da bude ispričana",
+    "subtitle": "Nije bitno da li je vjenčanje ili neki drugi događaj, želimo čuti vašu viziju i pretvoriti je u stvarnost.",
+    "contact": "Kontakt",
+    "gallery": "Galerija"
+  },
+  "contact": {
+    "eyebrow": "Kontaktirajte nas",
+    "title": "Kreirajmo\nNešto posebno",
+    "subtitle": "Recite nam o vašoj viziji i mi ćemo je pretvoriti u stvarnost.",
+    "heading": "Radujemo se vašem javljanju",
+    "description": "Bez obzira da li planirate vjenčanje, portretno snimanje ili korporativni event — javite nam se i odgovorit ćemo vam u roku od 24 sata.",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefon",
+    "locationLabel": "Lokacija",
+    "form": {
+      "name": "Ime i prezime *",
+      "namePlaceholder": "Ana Kovač",
+      "email": "Email adresa *",
+      "emailPlaceholder": "ana@email.com",
+      "phone": "Broj telefona",
+      "phonePlaceholder": "+387 61 000 000",
+      "message": "Poruka *",
+      "messagePlaceholder": "Recite nam o vašem projektu, datumu vjenčanja, lokaciji...",
+      "send": "Pošaljite poruku",
+      "sending": "Slanje…",
+      "successTitle": "Poruka poslana!",
+      "successText": "Hvala što ste nam se javili. Kontaktiraćemo vas u roku od 24 sata.",
+      "sendAnother": "Pošaljite novu poruku",
+      "error": "Nešto je pošlo naopako. Molimo pokušajte ponovo ili nas kontaktirajte direktno."
+    }
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "Odabrani radovi",
+    "subtitle": "Svaka slika je razgovor između svjetla, emocije i vizije.",
+    "category": "Fotografija"
+  }
+}

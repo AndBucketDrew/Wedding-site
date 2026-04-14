@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "footer": {
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "admin": "Admin",
+    "copyright": "All rights reserved."
+  },
+  "home": {
+    "eyebrow": "HALILAGIĆ WEDDINGS",
+    "title": "Your Story\nOur Photography",
+    "subtitle": "We create cinematic memories that last a lifetime.",
+    "cta": "Gallery"
+  },
+  "stats": {
+    "experience": "years of experience",
+    "weddings": "weddings",
+    "delivery": "days delivery"
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "titleMain": "Moments Create",
+    "titleHighlight": "Memories",
+    "text1": "Halilagić Weddings is a professional wedding photo and video team based in Bihać, Bosnia and Herzegovina, available for weddings across Europe. With over 30 years of experience and a team of multiple specialists, we have mastered the art of capturing the most beautiful moments of your day in a romantic and unique way — exactly as the heart remembers them.",
+    "text2": "Every wedding carries its own unique story. Our task is not just to photograph, but to feel the atmosphere, capture unspoken emotions, and turn them into images and films that will bring you back to that day again and again. What we offer is not just a service — it is an experience. From the first consultation to the final delivery, we take care of every detail so that the memories of your most important day are perfect. Whether you're planning an intimate wedding or a grand celebration, our team is here to make it unforgettable.",
+    "cta": "Browse our gallery"
+  },
+  "featuredPosts": {
+    "eyebrow": "Blog",
+    "title": "Our Weddings",
+    "subtitle": "Browse a selection of our most special weddings from the past year.",
+    "category": "Photography",
+    "viewAll": "View All Work"
+  },
+  "packages": {
+    "eyebrow": "Pricing",
+    "title": "Our Packages",
+    "subtitle": "Select a region to see the available packages.",
+    "regionLabel": "Select region",
+    "mostPopular": "Most Popular",
+    "bookNow": "Book Now",
+    "onRequest": "On request",
+    "regions": {
+      "region-1": "Bosnia & Herzegovina",
+      "region-2": "Croatia",
+      "region-3": "Rest of Europe"
+    },
+    "data": {
+      "region-1": [
+        {
+          "name": "Essential",
+          "price": "€900",
+          "description": "Perfect for intimate ceremonies and elopements.",
+          "features": ["4 hours coverage", "200+ edited photos", "Online gallery", "Print release"]
+        },
+        {
+          "name": "Classic",
+          "price": "€1,400",
+          "description": "Our most popular package for full-day weddings.",
+          "features": ["8 hours coverage", "400+ edited photos", "Online gallery", "Print release", "Engagement session"],
+          "highlight": true
+        },
+        {
+          "name": "Premium",
+          "price": "€2,100",
+          "description": "Full-day coverage with second shooter and film.",
+          "features": ["10 hours coverage", "600+ edited photos", "Second shooter", "Short film highlight", "Engagement session", "Premium album"]
+        },
+        {
+          "name": "Bespoke",
+          "price": "On request",
+          "description": "Fully tailored to multi-day or destination events.",
+          "features": ["Custom hours", "Unlimited photos", "Full film edit", "Dedicated team", "Travel included"]
+        }
+      ],
+      "region-2": [
+        {
+          "name": "Essential",
+          "price": "€850",
+          "description": "Ideal for smaller, more intimate ceremonies.",
+          "features": ["4 hours coverage", "180+ edited photos", "Online gallery", "Print release"]
+        },
+        {
+          "name": "Classic",
+          "price": "€1,300",
+          "description": "A solid full-day wedding package.",
+          "features": ["8 hours coverage", "380+ edited photos", "Online gallery", "Print release", "Engagement session"],
+          "highlight": true
+        },
+        {
+          "name": "Premium",
+          "price": "€1,950",
+          "description": "Extended coverage with cinematic film add-on.",
+          "features": ["10 hours coverage", "550+ edited photos", "Second shooter", "Short film highlight", "Premium album"]
+        }
+      ],
+      "region-3": [
+        {
+          "name": "Essential",
+          "price": "€1,000",
+          "description": "Coastal ceremony coverage, beautifully edited.",
+          "features": ["5 hours coverage", "220+ edited photos", "Online gallery", "Print release"]
+        },
+        {
+          "name": "Classic",
+          "price": "€1,600",
+          "description": "Full-day seaside wedding, our most sought-after.",
+          "features": ["9 hours coverage", "450+ edited photos", "Online gallery", "Print release", "Engagement session"],
+          "highlight": true
+        },
+        {
+          "name": "Premium",
+          "price": "€2,400",
+          "description": "All-inclusive with film, album, and second shooter.",
+          "features": ["12 hours coverage", "650+ edited photos", "Second shooter", "Short film highlight", "Engagement session", "Luxury album"]
+        },
+        {
+          "name": "Destination",
+          "price": "On request",
+          "description": "International travel + multi-day event packages.",
+          "features": ["Custom schedule", "Unlimited photos", "Full film production", "Dedicated team", "Travel & stay included"]
+        }
+      ]
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Reviews",
+    "title": "What our clients say"
+  },
+  "contactCTA": {
+    "eyebrow": "Let's create together",
+    "titleMain": "Your story deserves",
+    "titleHighlight": "to be told",
+    "subtitle": "Whether it's a wedding or any other event, we want to hear your vision and turn it into reality.",
+    "contact": "Contact",
+    "gallery": "Gallery"
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "title": "Let's Create\nSomething Beautiful",
+    "subtitle": "Tell us about your vision and we'll make it a reality.",
+    "heading": "We'd love to hear from you",
+    "description": "Whether you're planning a wedding, a portrait session, or a commercial shoot — reach out and we'll get back to you within 24 hours.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "form": {
+      "name": "Full Name *",
+      "namePlaceholder": "Jane Smith",
+      "email": "Email Address *",
+      "emailPlaceholder": "jane@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "message": "Message *",
+      "messagePlaceholder": "Tell us about your project, event date, location...",
+      "send": "Send Message",
+      "sending": "Sending…",
+      "successTitle": "Message Sent!",
+      "successText": "Thank you for reaching out. We'll be in touch within 24 hours.",
+      "sendAnother": "Send another message",
+      "error": "Something went wrong. Please try again or email us directly."
+    }
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "Selected Work",
+    "subtitle": "Every image is a conversation between light, emotion, and vision.",
+    "category": "Photography"
+  }
+}

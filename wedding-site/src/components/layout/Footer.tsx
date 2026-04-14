@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export function Footer() {
+  const { t } = useTranslation()
   const year = new Date().getFullYear()
 
   return (
@@ -14,9 +16,9 @@ export function Footer() {
         {/* Links */}
         <nav className="flex gap-8">
           {[
-            { label: 'Portfolio', to: '/posts' },
-            { label: 'Contact',   to: '/contact' },
-            { label: 'Admin',     to: '/admin' },
+            { label: t('footer.portfolio'), to: '/posts' },
+            { label: t('footer.contact'),   to: '/contact' },
+            { label: t('footer.admin'),     to: '/admin' },
           ].map(l => (
             <Link
               key={l.to}
@@ -30,7 +32,7 @@ export function Footer() {
 
         {/* Copyright */}
         <p className="font-sans text-xs tracking-wider">
-          &copy; {year} Dzejlan. All rights reserved.
+          &copy; {year} Dzejlan. {t('footer.copyright')}
         </p>
       </div>
     </footer>

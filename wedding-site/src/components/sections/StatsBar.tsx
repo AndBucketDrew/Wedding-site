@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
-
-const stats = [
-  { number: '10',   label: 'godina iskustva' },
-  { number: '200+', label: 'vjenčanja'       },
-  { number: '7',    label: 'dana dostave'    },
-]
+import { useTranslation } from 'react-i18next'
 
 export function StatsBar() {
+  const { t } = useTranslation()
+
+  const stats = [
+    { number: '30',   label: t('stats.experience') },
+    { number: '300+', label: t('stats.weddings')   },
+    { number: '15',    label: t('stats.delivery')   },
+  ]
+
   return (
     <section className="bg-white py-8 md:py-14">
       <div className="max-w-3xl mx-auto px-4">

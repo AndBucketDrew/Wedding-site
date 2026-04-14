@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
 import { GalleryShowcase } from '@/components/sections/GalleryShowcase'
@@ -8,14 +9,16 @@ import { Packages } from '@/components/sections/Packages'
 import { ContactCTA } from '@/components/sections/ContactCTA'
 
 export function Home() {
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <Hero
         image="https://picsum.photos/seed/dzejlan-hero/1920/1080"
-        eyebrow="HALILAGIĆ WEDDINGS"
-        title={'Vaša priča\nNaša fotografija'}
-        subtitle="Stvaramo filmske uspomene koje traju cijeli život."
-        ctaLabel="Galerija"
+        eyebrow={t('home.eyebrow')}
+        title={t('home.title')}
+        subtitle={t('home.subtitle')}
+        ctaLabel={t('home.cta')}
         ctaTo="/posts"
       />
       <StatsBar />

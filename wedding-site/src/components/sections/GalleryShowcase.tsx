@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { Link } from 'react-router-dom'
 import { useGallery } from '@/hooks/useGallery'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
 export function GalleryShowcase() {
+  const { t } = useTranslation()
   const { images, loading } = useGallery()
 
   return (
@@ -14,14 +16,14 @@ export function GalleryShowcase() {
         <div className="w-full flex flex-col gap-6">
           <FadeIn>
             <span className="font-sans text-xs tracking-[0.25em] uppercase text-[#C9A96E]">
-              O nama
+              {t('about.eyebrow')}
             </span>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#111111] leading-tight">
-              Momenti stvaraju<br />
-              <em className="not-italic text-[#C9A96E]">Uspomene</em>
+              {t('about.titleMain')}<br />
+              <em className="not-italic text-[#C9A96E]">{t('about.titleHighlight')}</em>
             </h2>
           </FadeIn>
 
@@ -31,9 +33,8 @@ export function GalleryShowcase() {
 
           <FadeIn delay={0.25}>
             <p className="font-sans text-base text-[#6B6B6B] leading-relaxed">
-              Halilagić Weddings je profesionalni svadbeni foto i video tim sa sjedištem u Bihaću, Bosna i Hercegovina, dostupan za vjenčanja širom Europe. Sa više od 30 godina iskustva i timom od više stručnjaka, specijalizirali smo se za stvaranje najljepših trenutaka vašeg dana na romantičan i poseban način, onako kako ih srce pamti.<br /><br />
-              Svako vjenčanje nosi svoju jedinstvenu priču. Naš zadatak nije samo fotografisati, već osjetiti atmosferu, uhvatiti neizrečene emocije i pretvoriti ih u slike i filmove koji će vas vraćati u taj dan iznova i iznova.
-              Ono što nudimo nije samo usluga,  to je iskustvo. Od prvih konsultacija do konačne isporuke materijala, brinemo o svakom detalju kako bi uspomene na vaš najvažniji dan bile savršene. Bez obzira da li planirate intimno vjenčanje ili veliku svečanost, naš tim je tu da ga učinimo nezaboravnim.
+              {t('about.text1')}<br /><br />
+              {t('about.text2')}
             </p>
           </FadeIn>
 
@@ -42,7 +43,7 @@ export function GalleryShowcase() {
               to="/posts"
               className="self-start font-sans text-xs tracking-[0.25em] uppercase border border-[#C9A96E] text-[#C9A96E] px-8 py-3 hover:bg-[#C9A96E] hover:text-white transition-all duration-300"
             >
-              Pregledajte našu galeriju
+              {t('about.cta')}
             </Link>
           </FadeIn>
         </div>

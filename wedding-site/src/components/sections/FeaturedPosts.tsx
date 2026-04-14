@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -5,6 +6,7 @@ import { usePosts } from '@/hooks/usePosts'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
 export function FeaturedPosts() {
+  const { t } = useTranslation()
   const { posts, loading } = usePosts()
   const display = posts.slice(0, 3)
 
@@ -24,9 +26,9 @@ export function FeaturedPosts() {
     <section className="py-12 md:py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         <SectionHeading
-          eyebrow="Blogovi"
-          title="Naša Vjenčanja"
-          subtitle="Pogledajte selekciju naših posebnih vjenčanja iz prošle godine."
+          eyebrow={t('featuredPosts.eyebrow')}
+          title={t('featuredPosts.title')}
+          subtitle={t('featuredPosts.subtitle')}
         />
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -41,7 +43,7 @@ export function FeaturedPosts() {
                   />
                 </div>
                 <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#C9A96E] block mb-2">
-                  Photography
+                  {t('featuredPosts.category')}
                 </span>
                 <h3 className="font-serif text-xl text-[#111111] group-hover:text-[#C9A96E] transition-colors">
                   {post.title}
@@ -59,7 +61,7 @@ export function FeaturedPosts() {
             to="/posts"
             className="font-sans text-xs tracking-[0.25em] uppercase border border-[#2A2A2A] text-[#2A2A2A] px-10 py-4 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all duration-300"
           >
-            View All Work
+            {t('featuredPosts.viewAll')}
           </Link>
         </FadeIn>
       </div>

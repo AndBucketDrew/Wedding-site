@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/utils/cn'
 
-const NAV_LINKS = [
-  { label: 'Galerija', to: '/posts' },
-  { label: 'O nama',     to: '/#about' },
-  { label: 'Kontakt',   to: '/contact' },
-]
-
 export function Navbar() {
-  const [scrolled,   setScrolled]   = useState(false)
-  const [menuOpen,   setMenuOpen]   = useState(false)
+  const { t, i18n } = useTranslation()
+  const [scrolled,  setScrolled]  = useState(false)
+  const [menuOpen,  setMenuOpen]  = useState(false)
+
+  const NAV_LINKS = [
+    { label: t('nav.gallery'), to: '/posts' },
+    { label: t('nav.about'),   to: '/#about' },
+    { label: t('nav.contact'), to: '/contact' },
+  ]
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
+
+  const toggleLang = () => {
+    i18n.changeLanguage(i18n.language === 'bs' ? 'en' : 'bs')
+  }
 
   return (
     <header
@@ -61,6 +67,22 @@ export function Navbar() {
               </NavLink>
             </li>
           ))}
+
+          {/* Language toggle */}
+          <li>
+            <button
+              onClick={toggleLang}
+              className={cn(
+                'font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-300 border px-2.5 py-1',
+                scrolled
+                  ? 'border-[#2A2A2A]/30 text-[#2A2A2A] hover:border-[#C9A96E] hover:text-[#C9A96E]'
+                  : 'border-white/40 text-white/90 hover:border-[#C9A96E] hover:text-[#C9A96E]',
+              )}
+              aria-label="Switch language"
+            >
+              {i18n.language === 'bs' ? 'EN' : 'BS'}
+            </button>
+          </li>
         </ul>
 
         {/* Mobile toggle */}
@@ -80,7 +102,7 @@ export function Navbar() {
       <div
         className={cn(
           'md:hidden overflow-hidden transition-all duration-400',
-          menuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0',
+          menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0',
         )}
       >
         <ul className="bg-[#F8F5F0] flex flex-col px-6 pb-6 gap-5 pt-4">
@@ -100,6 +122,15 @@ export function Navbar() {
               </NavLink>
             </li>
           ))}
+          {/* Mobile language toggle */}
+          <li>
+            <button
+              onClick={() => { toggleLang(); setMenuOpen(false) }}
+              className="font-sans text-xs tracking-[0.2em] uppercase border border-[#2A2A2A]/30 text-[#2A2A2A] hover:border-[#C9A96E] hover:text-[#C9A96E] px-2.5 py-1 transition-colors duration-300"
+            >
+              {i18n.language === 'bs' ? 'EN' : 'BS'}
+            </button>
+          </li>
         </ul>
       </div>
     </header>
