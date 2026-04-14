@@ -1,6 +1,13 @@
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage'
 import { storage } from '@/lib/firebase'
 
+/** Extracts the storage path from a Firebase download URL. */
+function pathFromUrl(url: string): string {
+  const match = url.match(/\/o\/(.+?)(\?|$)/)
+  if (!match) throw new Error(`Cannot parse storage path from URL: ${url}`)
+  return decodeURIComponent(match[1])
+}
+
 /**
  * Uploads an image to Firebase Storage under /posts/{filename}.
  * Returns the public download URL.
@@ -32,7 +39,7 @@ export function uploadPostImage(
 
 export async function deletePostImage(url: string): Promise<void> {
   try {
-    await deleteObject(ref(storage, url))
+    await deleteObject(ref(storage, pathFromUrl(url)))
   } catch {
     // Already deleted or external URL — ignore
   }
@@ -69,7 +76,7 @@ export function uploadGalleryImage(
 
 export async function deleteGalleryImage(url: string): Promise<void> {
   try {
-    await deleteObject(ref(storage, url))
+    await deleteObject(ref(storage, pathFromUrl(url)))
   } catch {
     // Already deleted or external URL — ignore
   }
