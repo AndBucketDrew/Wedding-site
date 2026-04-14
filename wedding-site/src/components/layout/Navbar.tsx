@@ -73,14 +73,15 @@ export function Navbar() {
             <button
               onClick={toggleLang}
               className={cn(
-                'font-sans text-xs tracking-[0.2em] uppercase transition-colors duration-300 border px-2.5 py-1',
-                scrolled
-                  ? 'border-[#2A2A2A]/30 text-[#2A2A2A] hover:border-[#C9A96E] hover:text-[#C9A96E]'
-                  : 'border-white/40 text-white/90 hover:border-[#C9A96E] hover:text-[#C9A96E]',
+                'flex items-center transition-opacity duration-300 hover:opacity-60',
+                scrolled ? 'opacity-90' : 'opacity-80',
               )}
               aria-label="Switch language"
             >
-              {i18n.language === 'bs' ? '🇬🇧' : '🇧🇦'}
+              <span
+                className={cn('fi', i18n.language === 'bs' ? 'fi-gb' : 'fi-ba')}
+                style={{ width: '28px', height: '18px', display: 'block', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+              />
             </button>
           </li>
         </ul>
@@ -126,9 +127,13 @@ export function Navbar() {
           <li>
             <button
               onClick={() => { toggleLang(); setMenuOpen(false) }}
-              className="font-sans text-xs tracking-[0.2em] uppercase border border-[#2A2A2A]/30 text-[#2A2A2A] hover:border-[#C9A96E] hover:text-[#C9A96E] px-2.5 py-1 transition-colors duration-300"
+              className="flex items-center opacity-80 hover:opacity-60 transition-opacity duration-300"
+              aria-label="Switch language"
             >
-              {i18n.language === 'bs' ? '🇬🇧' : '🇧🇦'}
+              <span
+                className={cn('fi', i18n.language === 'bs' ? 'fi-gb' : 'fi-ba')}
+                style={{ width: '28px', height: '18px', display: 'block', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+              />
             </button>
           </li>
         </ul>
