@@ -6,15 +6,6 @@ import { FadeIn } from '@/components/ui/FadeIn'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { usePosts } from '@/hooks/usePosts'
 
-const PLACEHOLDER_POSTS = Array.from({ length: 9 }, (_, i) => ({
-  id: String(i + 1),
-  slug: `project-${i + 1}`,
-  title: `Project ${i + 1}`,
-  description: 'A beautifully crafted visual story told through light and composition.',
-  coverImage: `https://picsum.photos/seed/posts-grid-${i + 1}/800/600`,
-  status: 'published' as const,
-}))
-
 export function Posts() {
   const { t, i18n } = useTranslation()
   const { posts, loading, error } = usePosts()
@@ -22,7 +13,6 @@ export function Posts() {
   function localise(en: string, bs: string) {
     return i18n.language === 'bs' && bs ? bs : en
   }
-  const display = posts.length > 0 ? posts : PLACEHOLDER_POSTS
 
   return (
     <Layout>
@@ -46,7 +36,7 @@ export function Posts() {
             <LoadingSpinner />
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {display.map((post, i) => (
+              {posts.map((post, i) => (
                 <FadeIn key={post.id} delay={(i % 3) * 0.1}>
                   <Link to={`/posts/${post.slug}`} className="group block">
                     <div className="img-zoom overflow-hidden aspect-[4/3] rounded-sm mb-4">
