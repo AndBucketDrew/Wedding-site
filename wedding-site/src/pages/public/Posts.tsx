@@ -16,8 +16,12 @@ const PLACEHOLDER_POSTS = Array.from({ length: 9 }, (_, i) => ({
 }))
 
 export function Posts() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { posts, loading, error } = usePosts()
+
+  function localise(en: string, bs: string) {
+    return i18n.language === 'bs' && bs ? bs : en
+  }
   const display = posts.length > 0 ? posts : PLACEHOLDER_POSTS
 
   return (
@@ -56,10 +60,10 @@ export function Posts() {
                       {t('portfolio.category')}
                     </span>
                     <h2 className="font-serif text-lg text-[#111111] group-hover:text-[#C9A96E] transition-colors mb-1">
-                      {post.title}
+                      {localise(post.title, post.title_bs ?? '')}
                     </h2>
                     <p className="font-sans text-sm text-[#9C9C9C] line-clamp-2">
-                      {post.description}
+                      {localise(post.description, post.description_bs ?? '')}
                     </p>
                   </Link>
                 </FadeIn>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Layout } from '@/components/layout/Layout'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
@@ -11,12 +12,19 @@ const PLACEHOLDER: Post = {
   id: 'placeholder',
   slug: 'placeholder',
   title: 'Editorial Session',
+  title_bs: 'Editorijalna sesija',
   description: 'A moody editorial shoot exploring light and shadow in an urban landscape.',
+  description_bs: 'Atmosferično editorijalno snimanje koje istražuje svjetlo i sjenu u urbanom pejzažu.',
   content: `This session was born from a vision of contrasts — soft light against hard architecture, vulnerability amid the city's relentless movement.
 
 We spent a morning exploring the industrial edges of the city, letting the available light guide each frame. The goal was never perfection, but presence.
 
 The result is a series that feels alive — each image a quiet moment pulled from an otherwise rushing world.`,
+  content_bs: `Ova sesija nastala je iz vizije kontrasta — meko svjetlo nasuprot tvrdoj arhitekturi, ranjivost usred neumornog gradskog kretanja.
+
+Proveli smo jutro istražujući industrijske rubove grada, pustivši dostupno svjetlo da vodi svaki kadar. Cilj nikada nije bila savršenost, već prisutnost.
+
+Rezultat je niz koji djeluje živo — svaka slika tihi trenutak izvučen iz inače užurbanog svijeta.`,
   coverImage: 'https://picsum.photos/seed/post-detail-hero/1920/900',
   images: [
     'https://picsum.photos/seed/gallery-1/800/1000',
@@ -33,9 +41,14 @@ The result is a series that feels alive — each image a quiet moment pulled fro
 
 export function PostDetail() {
   const { slug } = useParams<{ slug: string }>()
+  const { i18n } = useTranslation()
   const [post,       setPost]       = useState<Post | null>(null)
   const [loading,    setLoading]    = useState(true)
   const [lightbox,   setLightbox]   = useState<number | null>(null)
+
+  function localise(en: string, bs: string) {
+    return i18n.language === 'bs' && bs ? bs : en
+  }
 
   useEffect(() => {
     if (!slug) return
@@ -72,7 +85,7 @@ export function PostDetail() {
             </span>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold">{p.title}</h1>
+            <h1 className="font-serif text-4xl md:text-6xl font-bold">{localise(p.title, p.title_bs)}</h1>
           </FadeIn>
         </div>
       </div>
@@ -81,13 +94,13 @@ export function PostDetail() {
       <article className="py-20 px-6 max-w-3xl mx-auto">
         <FadeIn>
           <p className="font-sans text-lg text-[#6B6B6B] leading-relaxed mb-10 italic">
-            {p.description}
+            {localise(p.description, p.description_bs)}
           </p>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="font-sans text-ink leading-loose space-y-6 whitespace-pre-line">
-            {p.content}
+            {localise(p.content, p.content_bs)}
           </div>
         </FadeIn>
 

@@ -6,8 +6,12 @@ import { usePosts } from '@/hooks/usePosts'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
 export function FeaturedPosts() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { posts, loading } = usePosts()
+
+  function localise(en: string, bs: string) {
+    return i18n.language === 'bs' && bs ? bs : en
+  }
   const display = posts.slice(0, 3)
 
   if (loading) {
@@ -46,10 +50,10 @@ export function FeaturedPosts() {
                   {t('featuredPosts.category')}
                 </span>
                 <h3 className="font-serif text-xl text-[#111111] group-hover:text-[#C9A96E] transition-colors">
-                  {post.title}
+                  {localise(post.title, post.title_bs)}
                 </h3>
                 <p className="font-sans text-sm text-[#9C9C9C] mt-1 line-clamp-2">
-                  {post.description}
+                  {localise(post.description, post.description_bs)}
                 </p>
               </Link>
             </FadeIn>

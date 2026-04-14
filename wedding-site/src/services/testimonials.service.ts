@@ -28,6 +28,7 @@ function docToTestimonial(id: string, data: DocumentData): Testimonial {
     name:      data.name      ?? '',
     role:      data.role      ?? '',
     quote:     data.quote     ?? '',
+    quote_bs:  data.quote_bs  ?? '',
     avatar:    data.avatar    ?? '',
     createdAt: tsToISO(data.createdAt),
   }

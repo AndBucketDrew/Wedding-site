@@ -17,13 +17,16 @@ interface PostFormProps {
 }
 
 const EMPTY: PostInput = {
-  title:       '',
-  description: '',
-  content:     '',
-  coverImage:  '',
-  images:      [],
-  slug:        '',
-  status:      'draft',
+  title:          '',
+  title_bs:       '',
+  description:    '',
+  description_bs: '',
+  content:        '',
+  content_bs:     '',
+  coverImage:     '',
+  images:         [],
+  slug:           '',
+  status:         'draft',
 }
 
 function toSlug(text: string): string {
@@ -203,18 +206,33 @@ export function PostForm({ initialValues, onSubmit, submitLabel, pageTitle }: Po
           </div>
 
           {/* Title */}
-          <div>
-            <label htmlFor="title" className={labelCls}>Title *</label>
-            <input
-              id="title"
-              name="title"
-              type="text"
-              required
-              value={form.title}
-              onChange={handleChange}
-              placeholder="Wedding in Tuscany"
-              className={inputCls}
-            />
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="title" className={labelCls}>Title (English) *</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                required
+                value={form.title}
+                onChange={handleChange}
+                placeholder="Wedding in Tuscany"
+                className={inputCls}
+              />
+            </div>
+            <div>
+              <label htmlFor="title_bs" className={labelCls}>Title (Bosnian) *</label>
+              <input
+                id="title_bs"
+                name="title_bs"
+                type="text"
+                required
+                value={form.title_bs}
+                onChange={handleChange}
+                placeholder="Vjenčanje u Toskani"
+                className={inputCls}
+              />
+            </div>
           </div>
 
           {/* Slug */}
@@ -233,33 +251,63 @@ export function PostForm({ initialValues, onSubmit, submitLabel, pageTitle }: Po
           </div>
 
           {/* Description */}
-          <div>
-            <label htmlFor="description" className={labelCls}>Short Description *</label>
-            <textarea
-              id="description"
-              name="description"
-              required
-              rows={2}
-              value={form.description}
-              onChange={handleChange}
-              placeholder="One or two sentences that appear in cards and SEO..."
-              className={`${inputCls} resize-none`}
-            />
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="description" className={labelCls}>Short Description (English) *</label>
+              <textarea
+                id="description"
+                name="description"
+                required
+                rows={2}
+                value={form.description}
+                onChange={handleChange}
+                placeholder="One or two sentences that appear in cards and SEO..."
+                className={`${inputCls} resize-none`}
+              />
+            </div>
+            <div>
+              <label htmlFor="description_bs" className={labelCls}>Short Description (Bosnian) *</label>
+              <textarea
+                id="description_bs"
+                name="description_bs"
+                required
+                rows={2}
+                value={form.description_bs}
+                onChange={handleChange}
+                placeholder="Jedna ili dvije rečenice…"
+                className={`${inputCls} resize-none`}
+              />
+            </div>
           </div>
 
           {/* Content */}
-          <div>
-            <label htmlFor="content" className={labelCls}>Content *</label>
-            <textarea
-              id="content"
-              name="content"
-              required
-              rows={12}
-              value={form.content}
-              onChange={handleChange}
-              placeholder="Write your post content here. Paragraph breaks are preserved."
-              className={`${inputCls} resize-y`}
-            />
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="content" className={labelCls}>Content (English) *</label>
+              <textarea
+                id="content"
+                name="content"
+                required
+                rows={12}
+                value={form.content}
+                onChange={handleChange}
+                placeholder="Write your post content here. Paragraph breaks are preserved."
+                className={`${inputCls} resize-y`}
+              />
+            </div>
+            <div>
+              <label htmlFor="content_bs" className={labelCls}>Content (Bosnian) *</label>
+              <textarea
+                id="content_bs"
+                name="content_bs"
+                required
+                rows={12}
+                value={form.content_bs}
+                onChange={handleChange}
+                placeholder="Napišite sadržaj objave ovdje…"
+                className={`${inputCls} resize-y`}
+              />
+            </div>
           </div>
 
           {/* Status */}

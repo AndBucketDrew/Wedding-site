@@ -4,8 +4,11 @@ export type PostStatus = 'draft' | 'published'
 export interface Post {
   id: string
   title: string
+  title_bs: string
   description: string
+  description_bs: string
   content: string
+  content_bs: string
   coverImage: string       // URL — Storage or placeholder
   images: string[]         // Gallery images for the post
   slug: string
@@ -36,6 +39,7 @@ export interface Testimonial {
   name: string
   role: string
   quote: string
+  quote_bs: string
   avatar: string
   createdAt: string | null
 }

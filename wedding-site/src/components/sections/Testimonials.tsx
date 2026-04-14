@@ -5,8 +5,13 @@ import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { useTestimonials } from '@/hooks/useTestimonials'
 
 export function Testimonials() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { testimonials, loading } = useTestimonials()
+
+  function getQuote(item: (typeof testimonials)[number]) {
+    if (i18n.language === 'bs' && item.quote_bs) return item.quote_bs
+    return item.quote
+  }
 
   return (
     <section className="py-12 md:py-28 px-6 bg-cream">
@@ -28,7 +33,7 @@ export function Testimonials() {
                   <span className="font-serif text-5xl text-gold leading-none select-none">&ldquo;</span>
 
                   <p className="font-sans text-[#6B6B6B] text-sm leading-relaxed flex-1 -mt-4">
-                    {t_item.quote}
+                    {getQuote(t_item)}
                   </p>
 
                   <div className="flex items-center gap-4 pt-4 border-t border-mist">

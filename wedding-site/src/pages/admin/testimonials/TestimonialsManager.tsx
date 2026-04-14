@@ -10,7 +10,7 @@ import {
 import type { Testimonial, TestimonialInput } from '@/types'
 import { Plus, Pencil, Trash2, Check, X, Quote } from 'lucide-react'
 
-const EMPTY: TestimonialInput = { name: '', role: '', quote: '', avatar: '' }
+const EMPTY: TestimonialInput = { name: '', role: '', quote: '', quote_bs: '', avatar: '' }
 
 export function TestimonialsManager() {
   const [items, setItems]       = useState<Testimonial[]>([])
@@ -42,7 +42,7 @@ export function TestimonialsManager() {
 
   function openEdit(t: Testimonial) {
     setEditingId(t.id)
-    setForm({ name: t.name, role: t.role, quote: t.quote, avatar: t.avatar })
+    setForm({ name: t.name, role: t.role, quote: t.quote, quote_bs: t.quote_bs, avatar: t.avatar })
   }
 
   function closeForm() {
@@ -52,8 +52,8 @@ export function TestimonialsManager() {
 
   async function handleSave() {
     if (!form) return
-    if (!form.name.trim() || !form.quote.trim()) {
-      setError('Name and quote are required.')
+    if (!form.name.trim() || !form.quote.trim() || !form.quote_bs.trim()) {
+      setError('Name, quote (English) and quote (Bosnian) are required.')
       return
     }
     setSaving(true)
@@ -144,13 +144,24 @@ export function TestimonialsManager() {
             </div>
 
             <div>
-              <label className={labelCls}>Quote *</label>
+              <label className={labelCls}>Quote – English *</label>
               <textarea
                 className={`${inputCls} resize-none`}
                 rows={3}
                 value={form.quote}
                 onChange={e => setForm(f => f && { ...f, quote: e.target.value })}
                 placeholder="Share what the client said…"
+              />
+            </div>
+
+            <div>
+              <label className={labelCls}>Quote – Bosnian *</label>
+              <textarea
+                className={`${inputCls} resize-none`}
+                rows={3}
+                value={form.quote_bs}
+                onChange={e => setForm(f => f && { ...f, quote_bs: e.target.value })}
+                placeholder="Bosanski prijevod…"
               />
             </div>
 

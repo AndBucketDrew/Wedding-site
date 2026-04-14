@@ -27,15 +27,18 @@ function tsToISO(ts: Timestamp | null | undefined): string | null {
 function docToPost(id: string, data: DocumentData): Post {
   return {
     id,
-    title:       data.title       ?? '',
-    description: data.description ?? '',
-    content:     data.content     ?? '',
-    coverImage:  data.coverImage  ?? '',
-    images:      Array.isArray(data.images) ? data.images : [],
-    slug:        data.slug        ?? '',
-    status:      data.status      ?? 'draft',
-    createdAt:   tsToISO(data.createdAt),
-    updatedAt:   tsToISO(data.updatedAt),
+    title:          data.title          ?? '',
+    title_bs:       data.title_bs       ?? '',
+    description:    data.description    ?? '',
+    description_bs: data.description_bs ?? '',
+    content:        data.content        ?? '',
+    content_bs:     data.content_bs     ?? '',
+    coverImage:     data.coverImage     ?? '',
+    images:         Array.isArray(data.images) ? data.images : [],
+    slug:           data.slug           ?? '',
+    status:         data.status         ?? 'draft',
+    createdAt:      tsToISO(data.createdAt),
+    updatedAt:      tsToISO(data.updatedAt),
   }
 }
 
