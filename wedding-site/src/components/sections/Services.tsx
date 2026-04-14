@@ -1,3 +1,4 @@
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { FadeIn } from '@/components/ui/FadeIn'
@@ -5,7 +6,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 
 const SERVICE_SLUGS = ['niski-dim', 'vatromet', 'photobook', 'lazni-maticar'] as const
 
-const SERVICE_ICONS: Record<string, JSX.Element> = {
+const SERVICE_ICONS: Record<string, React.ReactElement> = {
   'niski-dim': (
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
       <path d="M6 26c0-3.314 2.686-6 6-6 .35 0 .693.03 1.026.088C13.9 17.686 16.74 16 20 16c4.418 0 8 3.582 8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
