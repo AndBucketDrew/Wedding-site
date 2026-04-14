@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 export function ContactCTA() {
+  const { t } = useTranslation()
+
   return (
     <section
       className="relative py-36 px-6 bg-cover bg-center overflow-hidden"
@@ -18,7 +21,7 @@ export function ContactCTA() {
           transition={{ duration: 0.7 }}
           className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A96E]"
         >
-          Stvarajmo zajedno
+          {t('contactCTA.eyebrow')}
         </motion.span>
 
         <motion.h2
@@ -28,9 +31,9 @@ export function ContactCTA() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-serif text-4xl md:text-6xl font-bold leading-tight"
         >
-          Vaša priča zaslužuje
+          {t('contactCTA.titleMain')}
           <br />
-          <em className="not-italic text-[#C9A96E]">da bude ispričana</em>
+          <em className="not-italic text-[#C9A96E]">{t('contactCTA.titleHighlight')}</em>
         </motion.h2>
 
         <motion.p
@@ -40,7 +43,7 @@ export function ContactCTA() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="font-sans text-white/70 text-base max-w-lg"
         >
-          Nije bitno da li je vjenčanje ili neki drugi događaj, želimo čuti vašu viziju i pretvoriti je u stvarnost.
+          {t('contactCTA.subtitle')}
         </motion.p>
 
         <motion.div
@@ -54,13 +57,13 @@ export function ContactCTA() {
             to="/contact"
             className="font-sans text-xs tracking-[0.25em] uppercase bg-[#C9A96E] text-white px-10 py-4 hover:bg-[#A8843E] transition-colors duration-300"
           >
-            Kontakt
+            {t('contactCTA.contact')}
           </Link>
           <Link
             to="/posts"
             className="font-sans text-xs tracking-[0.25em] uppercase border border-white/40 text-white px-10 py-4 hover:border-[#C9A96E] hover:text-[#C9A96E] transition-all duration-300"
           >
-            Galerija
+            {t('contactCTA.gallery')}
           </Link>
         </motion.div>
       </div>

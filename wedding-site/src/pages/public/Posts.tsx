@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
@@ -15,6 +16,7 @@ const PLACEHOLDER_POSTS = Array.from({ length: 9 }, (_, i) => ({
 }))
 
 export function Posts() {
+  const { t } = useTranslation()
   const { posts, loading, error } = usePosts()
   const display = posts.length > 0 ? posts : PLACEHOLDER_POSTS
 
@@ -22,9 +24,9 @@ export function Posts() {
     <Layout>
       <Hero
         image="https://picsum.photos/seed/dzejlan-portfolio/1920/600"
-        eyebrow="Portfolio"
-        title="Selected Work"
-        subtitle="Every image is a conversation between light, emotion, and vision."
+        eyebrow={t('portfolio.eyebrow')}
+        title={t('portfolio.title')}
+        subtitle={t('portfolio.subtitle')}
         fullScreen={false}
         ctaLabel={undefined}
         ctaTo={undefined}
@@ -51,7 +53,7 @@ export function Posts() {
                       />
                     </div>
                     <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#C9A96E] block mb-1">
-                      Photography
+                      {t('portfolio.category')}
                     </span>
                     <h2 className="font-serif text-lg text-[#111111] group-hover:text-[#C9A96E] transition-colors mb-1">
                       {post.title}

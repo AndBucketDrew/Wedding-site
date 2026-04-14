@@ -80,7 +80,7 @@ export function Navbar() {
               )}
               aria-label="Switch language"
             >
-              {i18n.language === 'bs' ? 'EN' : 'BS'}
+              {i18n.language === 'bs' ? '🇬🇧' : '🇧🇦'}
             </button>
           </li>
         </ul>
@@ -128,7 +128,7 @@ export function Navbar() {
               onClick={() => { toggleLang(); setMenuOpen(false) }}
               className="font-sans text-xs tracking-[0.2em] uppercase border border-[#2A2A2A]/30 text-[#2A2A2A] hover:border-[#C9A96E] hover:text-[#C9A96E] px-2.5 py-1 transition-colors duration-300"
             >
-              {i18n.language === 'bs' ? 'EN' : 'BS'}
+              {i18n.language === 'bs' ? '🇬🇧' : '🇧🇦'}
             </button>
           </li>
         </ul>

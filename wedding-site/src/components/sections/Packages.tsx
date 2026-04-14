@@ -1,110 +1,31 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
-// ─── Edit your regions and packages here ─────────────────────────────────────
-
 const REGIONS = [
-  { value: 'region-1', label: 'Bosna i Hercegovina' },
-  { value: 'region-2', label: 'Hrvatska' },
-  { value: 'region-3', label: 'Ostatak Europe' },
+  { value: 'region-1' },
+  { value: 'region-2' },
+  { value: 'region-3' },
 ] as const
 
 type RegionValue = (typeof REGIONS)[number]['value']
 
-interface Package {
+interface PackageData {
   name: string
-  price: string          // e.g. "€1,200" or "From €900"
+  price: string
   description: string
   features: string[]
-  highlight?: boolean    // marks the most popular card
+  highlight?: boolean
 }
-
-const PACKAGES: Record<RegionValue, Package[]> = {
-  'region-1': [
-    {
-      name: 'Essential',
-      price: '€900',
-      description: 'Perfect for intimate ceremonies and elopements.',
-      features: ['4 hours coverage', '200+ edited photos', 'Online gallery', 'Print release'],
-    },
-    {
-      name: 'Classic',
-      price: '€1,400',
-      description: 'Our most popular package for full-day weddings.',
-      features: ['8 hours coverage', '400+ edited photos', 'Online gallery', 'Print release', 'Engagement session'],
-      highlight: true,
-    },
-    {
-      name: 'Premium',
-      price: '€2,100',
-      description: 'Full-day coverage with second shooter and film.',
-      features: ['10 hours coverage', '600+ edited photos', 'Second shooter', 'Short film highlight', 'Engagement session', 'Premium album'],
-    },
-    {
-      name: 'Bespoke',
-      price: 'On request',
-      description: 'Fully tailored to multi-day or destination events.',
-      features: ['Custom hours', 'Unlimited photos', 'Full film edit', 'Dedicated team', 'Travel included'],
-    },
-  ],
-  'region-2': [
-    {
-      name: 'Essential',
-      price: '€850',
-      description: 'Ideal for smaller, more intimate ceremonies.',
-      features: ['4 hours coverage', '180+ edited photos', 'Online gallery', 'Print release'],
-    },
-    {
-      name: 'Classic',
-      price: '€1,300',
-      description: 'A solid full-day wedding package.',
-      features: ['8 hours coverage', '380+ edited photos', 'Online gallery', 'Print release', 'Engagement session'],
-      highlight: true,
-    },
-    {
-      name: 'Premium',
-      price: '€1,950',
-      description: 'Extended coverage with cinematic film add-on.',
-      features: ['10 hours coverage', '550+ edited photos', 'Second shooter', 'Short film highlight', 'Premium album'],
-    },
-  ],
-  'region-3': [
-    {
-      name: 'Essential',
-      price: '€1,000',
-      description: 'Coastal ceremony coverage, beautifully edited.',
-      features: ['5 hours coverage', '220+ edited photos', 'Online gallery', 'Print release'],
-    },
-    {
-      name: 'Classic',
-      price: '€1,600',
-      description: 'Full-day seaside wedding, our most sought-after.',
-      features: ['9 hours coverage', '450+ edited photos', 'Online gallery', 'Print release', 'Engagement session'],
-      highlight: true,
-    },
-    {
-      name: 'Premium',
-      price: '€2,400',
-      description: 'All-inclusive with film, album, and second shooter.',
-      features: ['12 hours coverage', '650+ edited photos', 'Second shooter', 'Short film highlight', 'Engagement session', 'Luxury album'],
-    },
-    {
-      name: 'Destination',
-      price: 'On request',
-      description: 'International travel + multi-day event packages.',
-      features: ['Custom schedule', 'Unlimited photos', 'Full film production', 'Dedicated team', 'Travel & stay included'],
-    },
-  ],
-}
-// ─────────────────────────────────────────────────────────────────────────────
 
 export function Packages() {
+  const { t } = useTranslation()
   const [region, setRegion] = useState<RegionValue>('region-1')
-  const packages = PACKAGES[region]
 
-  // Grid: 2 cols for 4 cards, 3 cols for 3 cards, auto otherwise
+  const packages = t(`packages.data.${region}`, { returnObjects: true }) as PackageData[]
+
   const gridClass =
     packages.length === 3
       ? 'grid md:grid-cols-3 gap-6'
@@ -117,19 +38,18 @@ export function Packages() {
         {/* Heading + region selector */}
         <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-0 md:justify-between">
           <SectionHeading
-            eyebrow="Ponuda"
-            title="Naši Paketi"
-            subtitle="Odaberite regiju da bi ste vidjeli dostupne pakete"
+            eyebrow={t('packages.eyebrow')}
+            title={t('packages.title')}
+            subtitle={t('packages.subtitle')}
           />
 
-          {/* Region dropdown */}
           <FadeIn delay={0.2} className="shrink-0">
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="region-select"
                 className="font-sans text-[10px] tracking-[0.25em] uppercase text-[#C9A96E]"
               >
-                Odaberite regiju
+                {t('packages.regionLabel')}
               </label>
               <div className="relative">
                 <select
@@ -146,11 +66,10 @@ export function Packages() {
                 >
                   {REGIONS.map(r => (
                     <option key={r.value} value={r.value}>
-                      {r.label}
+                      {t(`packages.regions.${r.value}`)}
                     </option>
                   ))}
                 </select>
-                {/* custom chevron */}
                 <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#C9A96E]">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -175,12 +94,11 @@ export function Packages() {
               >
                 {pkg.highlight && (
                   <div className="bg-[#C9A96E] text-white font-sans text-[10px] tracking-[0.2em] uppercase text-center py-1.5">
-                    Most Popular
+                    {t('packages.mostPopular')}
                   </div>
                 )}
 
                 <div className="flex flex-col flex-1 p-8 gap-6">
-                  {/* Name + price */}
                   <div className="flex flex-col gap-2">
                     <span className="font-serif text-2xl text-[#111111]">{pkg.name}</span>
                     <span className="font-sans text-3xl font-semibold text-[#C9A96E]">{pkg.price}</span>
@@ -189,7 +107,6 @@ export function Packages() {
 
                   <span className="divider-gold" />
 
-                  {/* Features */}
                   <ul className="flex flex-col gap-3 flex-1">
                     {pkg.features.map(f => (
                       <li key={f} className="flex items-start gap-3 font-sans text-sm text-[#444444]">
@@ -201,7 +118,6 @@ export function Packages() {
                     ))}
                   </ul>
 
-                  {/* CTA */}
                   <Link
                     to="/contact"
                     className={`
@@ -211,7 +127,7 @@ export function Packages() {
                         : 'border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-white'}
                     `}
                   >
-                    Book Now
+                    {t('packages.bookNow')}
                   </Link>
                 </div>
               </div>
