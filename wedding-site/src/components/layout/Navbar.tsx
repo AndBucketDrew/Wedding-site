@@ -36,14 +36,15 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          to="/"
-          className={cn(
-            'font-script text-3xl transition-colors duration-300',
-            scrolled ? 'text-[#111111]' : 'text-white',
-          )}
-        >
-          Dzejlan
+        <Link to="/" className="flex items-center">
+          <img
+            src="/logo.svg"
+            alt="Hallači Wedding"
+            className={cn(
+              'h-14 w-auto scale-[1.8] origin-left transition-all duration-500',
+              scrolled ? 'invert' : '',
+            )}
+          />
         </Link>
 
         {/* Desktop links */}
