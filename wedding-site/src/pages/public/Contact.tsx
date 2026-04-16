@@ -7,11 +7,13 @@ import { FadeIn } from '@/components/ui/FadeIn'
 import { Button } from '@/components/ui/Button'
 import type { ContactFormData } from '@/types'
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react'
+import { useSiteImages } from '@/hooks/useSiteImages'
 
 const INITIAL: ContactFormData = { name: '', email: '', phone: '', message: '' }
 
 export function Contact() {
   const { t } = useTranslation()
+  const { images } = useSiteImages()
   const [form,    setForm]    = useState<ContactFormData>(INITIAL)
   const [sending, setSending] = useState(false)
   const [sent,    setSent]    = useState(false)
@@ -51,7 +53,7 @@ export function Contact() {
   return (
     <Layout>
       <Hero
-        image="https://picsum.photos/seed/dzejlan-contact/1920/600"
+        image={images.heroContact}
         eyebrow={t('contact.eyebrow')}
         title={t('contact.title')}
         subtitle={t('contact.subtitle')}
@@ -93,13 +95,15 @@ export function Contact() {
               </div>
             </FadeIn>
 
-            <FadeIn direction="right" delay={0.2}>
-              <img
-                src="https://picsum.photos/seed/contact-side/600/400"
-                alt="Studio"
-                className="w-full object-cover rounded-sm"
-              />
-            </FadeIn>
+            {images.contactStudio && (
+              <FadeIn direction="right" delay={0.2}>
+                <img
+                  src={images.contactStudio}
+                  alt="Studio"
+                  className="w-full object-cover rounded-sm"
+                />
+              </FadeIn>
+            )}
           </div>
 
           {/* Form column */}

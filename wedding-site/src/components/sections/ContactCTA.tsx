@@ -1,17 +1,18 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useSiteImages } from '@/hooks/useSiteImages'
 
 export function ContactCTA() {
   const { t } = useTranslation()
+  const { images } = useSiteImages()
 
   return (
     <section
-      className="relative py-36 px-6 bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: "url('https://picsum.photos/seed/dzejlan-cta/1920/600')" }}
+      className="relative py-36 px-6 bg-[#111111] bg-cover bg-center overflow-hidden"
+      style={images.cta ? { backgroundImage: `url(${images.cta})` } : undefined}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#111111]/80" />
+      {images.cta && <div className="absolute inset-0 bg-[#111111]/80" />}
 
       <div className="relative z-10 max-w-3xl mx-auto text-center text-white flex flex-col gap-8 items-center">
         <motion.span

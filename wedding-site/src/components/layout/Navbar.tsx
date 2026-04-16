@@ -41,8 +41,8 @@ export function Navbar() {
             src="/logo.svg"
             alt="Hallači Wedding"
             className={cn(
-              'h-14 w-auto scale-[1.8] origin-left transition-all duration-500',
-              scrolled ? 'invert' : '',
+              'h-14 w-auto scale-[1.4] origin-left transition-all duration-500',
+              scrolled ? '' : 'invert',
             )}
           />
         </Link>

@@ -81,11 +81,15 @@ export function PostsList() {
                 >
                   {/* Post info */}
                   <div className="flex items-center gap-3 min-w-0">
-                    <img
-                      src={post.coverImage || `https://picsum.photos/seed/${post.id}/60/60`}
-                      alt={post.title}
-                      className="w-10 h-10 object-cover rounded-sm flex-shrink-0"
-                    />
+                    {post.coverImage ? (
+                      <img
+                        src={post.coverImage}
+                        alt={post.title}
+                        className="w-10 h-10 object-cover rounded-sm flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-10 h-10 rounded-sm flex-shrink-0 bg-[#E8E4DF]" />
+                    )}
                     <div className="min-w-0">
                       <p className="font-sans text-sm font-medium text-[#111111] truncate">{post.title}</p>
                       <p className="font-sans text-xs text-[#9C9C9C] truncate">{post.description}</p>

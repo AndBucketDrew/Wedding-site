@@ -1,21 +1,24 @@
 import { FadeIn } from '@/components/ui/FadeIn'
 import { Link } from 'react-router-dom'
+import { useSiteImages } from '@/hooks/useSiteImages'
 
 export function AboutIntro() {
+  const { images } = useSiteImages()
+
   return (
     <section id="about" className="py-28 px-6 bg-[#F8F5F0]">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        {/* Image */}
-        <FadeIn direction="right" className="img-zoom rounded-sm overflow-hidden">
-          <img
-            src="https://picsum.photos/seed/dzejlan-about/800/1000"
-            alt="Studio interior"
-            className="w-full object-cover h-[600px]"
-          />
-        </FadeIn>
-
+      <div className={`max-w-7xl mx-auto ${images.about ? 'grid md:grid-cols-2 gap-16 items-center' : ''}`}>
+        {images.about && (
+          <FadeIn direction="right" className="img-zoom rounded-sm overflow-hidden">
+            <img
+              src={images.about}
+              alt="Studio interior"
+              className="w-full object-cover h-[600px]"
+            />
+          </FadeIn>
+        )}
         {/* Text */}
-        <div className="flex flex-col gap-6">
+        <div className={`flex flex-col gap-6 ${images.about ? '' : 'max-w-2xl mx-auto text-center'}`}>
           <FadeIn delay={0.1}>
             <span className="font-sans text-xs tracking-[0.25em] uppercase text-[#C9A96E]">
               About the Studio

@@ -15,6 +15,7 @@ import { PostCreate }     from '@/pages/admin/posts/PostCreate'
 import { PostEdit }       from '@/pages/admin/posts/PostEdit'
 import { GalleryManager }       from '@/pages/admin/gallery/GalleryManager'
 import { TestimonialsManager } from '@/pages/admin/testimonials/TestimonialsManager'
+import { SiteImagesManager }   from '@/pages/admin/site/SiteImagesManager'
 
 // Guard
 import { ProtectedRoute } from './ProtectedRoute'
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
   {
     path: '/admin/testimonials',
     element: <ProtectedRoute><TestimonialsManager /></ProtectedRoute>,
+  },
+  {
+    path: '/admin/site',
+    element: <ProtectedRoute><SiteImagesManager /></ProtectedRoute>,
   },
 
   // ── Fallback ───────────────────────────────────────────────────────────────

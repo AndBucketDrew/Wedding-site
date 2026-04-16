@@ -46,6 +46,15 @@ export interface Testimonial {
 
 export type TestimonialInput = Omit<Testimonial, 'id' | 'createdAt'>
 
+// ─── Site images ──────────────────────────────────────────────────────────────
+export interface SiteImages {
+  heroHome:       string
+  heroPortfolio:  string
+  heroContact:    string
+  cta:            string
+  contactStudio:  string
+}
+
 // ─── Gallery ──────────────────────────────────────────────────────────────────
 export interface GalleryImage {
   id: string

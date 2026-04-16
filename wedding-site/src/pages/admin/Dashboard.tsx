@@ -82,11 +82,15 @@ export function Dashboard() {
               posts.slice(0, 5).map(post => (
                 <div key={post.id} className="flex items-center justify-between px-6 py-4">
                   <div className="flex items-center gap-4">
-                    <img
-                      src={post.coverImage || `https://picsum.photos/seed/${post.id}/60/60`}
-                      alt={post.title}
-                      className="w-10 h-10 object-cover rounded-sm flex-shrink-0"
-                    />
+                    {post.coverImage ? (
+                      <img
+                        src={post.coverImage}
+                        alt={post.title}
+                        className="w-10 h-10 object-cover rounded-sm flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-10 h-10 rounded-sm flex-shrink-0 bg-[#E8E4DF]" />
+                    )}
                     <div>
                       <p className="font-sans text-sm text-[#111111] font-medium">{post.title}</p>
                       <p className="font-sans text-xs text-[#9C9C9C]">{post.slug}</p>

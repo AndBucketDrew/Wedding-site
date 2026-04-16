@@ -5,10 +5,12 @@ import { Hero } from '@/components/sections/Hero'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { usePosts } from '@/hooks/usePosts'
+import { useSiteImages } from '@/hooks/useSiteImages'
 
 export function Posts() {
   const { t, i18n } = useTranslation()
   const { posts, loading, error } = usePosts()
+  const { images } = useSiteImages()
 
   function localise(en: string, bs: string) {
     return i18n.language === 'bs' && bs ? bs : en
@@ -17,7 +19,7 @@ export function Posts() {
   return (
     <Layout>
       <Hero
-        image="https://picsum.photos/seed/dzejlan-portfolio/1920/600"
+        image={images.heroPortfolio}
         eyebrow={t('portfolio.eyebrow')}
         title={t('portfolio.title')}
         subtitle={t('portfolio.subtitle')}

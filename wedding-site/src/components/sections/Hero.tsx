@@ -13,7 +13,7 @@ interface HeroProps {
 }
 
 export function Hero({
-  image     = 'https://picsum.photos/seed/dzejlan-hero/1920/1080',
+  image,
   eyebrow   = 'Photography & Film',
   title     = 'Every Frame\nTells a Story',
   subtitle  = 'We craft cinematic memories that last a lifetime.',
@@ -26,10 +26,12 @@ export function Hero({
       className={`relative w-full ${fullScreen ? 'h-screen' : 'h-[70vh]'} flex items-center justify-center overflow-hidden`}
     >
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover scale-105"
-        style={{ backgroundImage: `url(${image})` }}
-      />
+      {image && (
+        <div
+          className="absolute inset-0 bg-center bg-cover scale-105"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      )}
 
       {/* Overlay */}
       <div className="absolute inset-0 overlay-hero" />

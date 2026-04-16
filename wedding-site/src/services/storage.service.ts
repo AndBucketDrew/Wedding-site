@@ -81,3 +81,33 @@ export async function deleteGalleryImage(url: string): Promise<void> {
     // Already deleted or external URL — ignore
   }
 }
+
+/**
+ * Uploads a site-wide image to Firebase Storage under /site/{key}.
+ * Uploading to the same key overwrites the previous file.
+ * Returns the public download URL.
+ * Optional `onProgress` receives 0–100.
+ */
+export function uploadSiteImage(
+  key: string,
+  file: File,
+  onProgress?: (pct: number) => void,
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const storageRef = ref(storage, `site/${key}`)
+    const task       = uploadBytesResumable(storageRef, file)
+
+    task.on(
+      'state_changed',
+      snapshot => {
+        const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        onProgress?.(Math.round(pct))
+      },
+      err => reject(err),
+      async () => {
+        const url = await getDownloadURL(task.snapshot.ref)
+        resolve(url)
+      },
+    )
+  })
+}

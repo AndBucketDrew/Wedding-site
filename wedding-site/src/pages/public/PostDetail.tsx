@@ -8,42 +8,12 @@ import { getPostBySlug } from '@/services/posts.service'
 import type { Post } from '@/types'
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react'
 
-const PLACEHOLDER: Post = {
-  id: 'placeholder',
-  slug: 'placeholder',
-  title: 'Editorial Session',
-  title_bs: 'Editorijalna sesija',
-  description: 'A moody editorial shoot exploring light and shadow in an urban landscape.',
-  description_bs: 'Atmosferično editorijalno snimanje koje istražuje svjetlo i sjenu u urbanom pejzažu.',
-  content: `This session was born from a vision of contrasts — soft light against hard architecture, vulnerability amid the city's relentless movement.
-
-We spent a morning exploring the industrial edges of the city, letting the available light guide each frame. The goal was never perfection, but presence.
-
-The result is a series that feels alive — each image a quiet moment pulled from an otherwise rushing world.`,
-  content_bs: `Ova sesija nastala je iz vizije kontrasta — meko svjetlo nasuprot tvrdoj arhitekturi, ranjivost usred neumornog gradskog kretanja.
-
-Proveli smo jutro istražujući industrijske rubove grada, pustivši dostupno svjetlo da vodi svaki kadar. Cilj nikada nije bila savršenost, već prisutnost.
-
-Rezultat je niz koji djeluje živo — svaka slika tihi trenutak izvučen iz inače užurbanog svijeta.`,
-  coverImage: 'https://picsum.photos/seed/post-detail-hero/1920/900',
-  images: [
-    'https://picsum.photos/seed/gallery-1/800/1000',
-    'https://picsum.photos/seed/gallery-2/800/600',
-    'https://picsum.photos/seed/gallery-3/800/800',
-    'https://picsum.photos/seed/gallery-4/800/600',
-    'https://picsum.photos/seed/gallery-5/800/1200',
-    'https://picsum.photos/seed/gallery-6/800/700',
-  ],
-  status: 'published',
-  createdAt: null,
-  updatedAt: null,
-}
-
 export function PostDetail() {
   const { slug } = useParams<{ slug: string }>()
   const { i18n } = useTranslation()
   const [post,       setPost]       = useState<Post | null>(null)
   const [loading,    setLoading]    = useState(true)
+  const [notFound,   setNotFound]   = useState(false)
   const [lightbox,   setLightbox]   = useState<number | null>(null)
 
   function localise(en: string, bs: string) {
@@ -53,8 +23,11 @@ export function PostDetail() {
   useEffect(() => {
     if (!slug) return
     getPostBySlug(slug)
-      .then(p => setPost(p ?? PLACEHOLDER))
-      .catch(() => setPost(PLACEHOLDER))
+      .then(p => {
+        if (p) setPost(p)
+        else setNotFound(true)
+      })
+      .catch(() => setNotFound(true))
       .finally(() => setLoading(false))
   }, [slug])
 
@@ -66,14 +39,34 @@ export function PostDetail() {
     )
   }
 
-  const p = post ?? PLACEHOLDER
+  if (notFound || !post) {
+    return (
+      <Layout>
+        <div className="pt-32 pb-24 px-6 text-center">
+          <FadeIn>
+            <span className="font-sans text-xs tracking-[0.25em] uppercase text-gold block mb-4">404</span>
+            <h1 className="font-serif text-4xl text-charcoal mb-6">Post not found</h1>
+            <Link
+              to="/posts"
+              className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.2em] uppercase text-gold hover:gap-4 transition-all"
+            >
+              <ArrowLeft size={14} />
+              Back to Portfolio
+            </Link>
+          </FadeIn>
+        </div>
+      </Layout>
+    )
+  }
+
+  const p = post
 
   return (
     <Layout>
       {/* Hero image */}
       <div className="relative h-[70vh] overflow-hidden">
         <img
-          src={p.coverImage || `https://picsum.photos/seed/${slug}/1920/900`}
+          src={p.coverImage}
           alt={p.title}
           className="w-full h-full object-cover scale-105"
         />

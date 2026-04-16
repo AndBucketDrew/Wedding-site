@@ -8,14 +8,16 @@ import { FeaturedPosts } from '@/components/sections/FeaturedPosts'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { Packages } from '@/components/sections/Packages'
 import { ContactCTA } from '@/components/sections/ContactCTA'
+import { useSiteImages } from '@/hooks/useSiteImages'
 
 export function Home() {
   const { t } = useTranslation()
+  const { images } = useSiteImages()
 
   return (
     <Layout>
       <Hero
-        image="https://picsum.photos/seed/dzejlan-hero/1920/1080"
+        image={images.heroHome}
         eyebrow={t('home.eyebrow')}
         title={t('home.title')}
         subtitle={t('home.subtitle')}

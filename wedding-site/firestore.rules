@@ -26,6 +26,14 @@ service cloud.firestore {
       allow create, update, delete: if request.auth != null;
     }
 
+    // ── Site settings (hero/section images) ───────────────────────────────────
+    // Anyone can read (needed by public pages).
+    // Only authenticated users can update image URLs.
+    match /siteSettings/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
     // ── Default: deny everything else ──────────────────────────────────────────
     match /{document=**} {
       allow read, write: if false;
