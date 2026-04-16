@@ -32,7 +32,7 @@ export function Footer() {
           <img
             src="/logo.svg"
             alt="Hallači Wedding"
-            className={cn('h-14 w-auto scale-[2.75] origin-left transition-all duration-500')}
+            className={cn('h-14 w-auto scale-[2.75] ')}
           />
         </Link>
 
