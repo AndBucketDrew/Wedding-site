@@ -1,7 +1,8 @@
-import { useState, useEffect, type ChangeEvent } from 'react'
+import { useState, type ChangeEvent } from 'react'
 import { AdminLayout } from '../AdminLayout'
-import { getSiteImages, updateSiteImage } from '@/services/siteSettings.service'
+import { updateSiteImage } from '@/services/siteSettings.service'
 import { uploadSiteImage } from '@/services/storage.service'
+import { useSiteImages } from '@/hooks/useSiteImages'
 import type { SiteImages } from '@/types'
 import { ImagePlus, CheckCircle } from 'lucide-react'
 
@@ -20,17 +21,11 @@ const SLOTS: Slot[] = [
 ]
 
 export function SiteImagesManager() {
-  const [images,    setImages]    = useState<Partial<SiteImages>>({})
+  const { images, refresh } = useSiteImages()
   const [uploading, setUploading] = useState<keyof SiteImages | null>(null)
   const [uploadPct, setUploadPct] = useState<number | null>(null)
   const [saved,     setSaved]     = useState<keyof SiteImages | null>(null)
   const [error,     setError]     = useState<string | null>(null)
-
-  useEffect(() => {
-    getSiteImages()
-      .then(setImages)
-      .catch(() => setError('Failed to load site images'))
-  }, [])
 
   async function handleUpload(key: keyof SiteImages, e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
@@ -43,7 +38,7 @@ export function SiteImagesManager() {
     try {
       const url = await uploadSiteImage(key, file, pct => setUploadPct(pct))
       await updateSiteImage(key, url)
-      setImages(prev => ({ ...prev, [key]: url }))
+      refresh()
       setSaved(key)
       setTimeout(() => setSaved(null), 2500)
     } catch (err) {
