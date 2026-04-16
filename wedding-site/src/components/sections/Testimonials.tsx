@@ -52,7 +52,9 @@ export function Testimonials() {
                     )}
                     <div>
                       <p className="font-sans text-sm font-semibold text-charcoal">{t_item.name}</p>
-                      <p className="font-sans text-xs text-gold tracking-wide">{t_item.role}</p>
+                      <p className="font-sans text-xs text-gold tracking-wide">
+                        {i18n.language === 'bs' && t_item.role_bs ? t_item.role_bs : t_item.role}
+                      </p>
                     </div>
                   </div>
                 </div>

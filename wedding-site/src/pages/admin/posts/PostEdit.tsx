@@ -49,12 +49,16 @@ export function PostEdit() {
       pageTitle="Edit Post"
       submitLabel="Save Changes"
       initialValues={{
-        title:       post.title,
-        description: post.description,
-        content:     post.content,
-        coverImage:  post.coverImage,
-        slug:        post.slug,
-        status:      post.status,
+        title:          post.title,
+        title_bs:       post.title_bs,
+        description:    post.description,
+        description_bs: post.description_bs,
+        content:        post.content,
+        content_bs:     post.content_bs,
+        coverImage:     post.coverImage,
+        images:         post.images,
+        slug:           post.slug,
+        status:         post.status,
       }}
       onSubmit={handleSubmit}
     />

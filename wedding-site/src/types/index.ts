@@ -38,6 +38,7 @@ export interface Testimonial {
   id: string
   name: string
   role: string
+  role_bs: string
   quote: string
   quote_bs: string
   avatar: string

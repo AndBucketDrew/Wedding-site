@@ -10,7 +10,7 @@ import {
 import type { Testimonial, TestimonialInput } from '@/types'
 import { Plus, Pencil, Trash2, Check, X, Quote } from 'lucide-react'
 
-const EMPTY: TestimonialInput = { name: '', role: '', quote: '', quote_bs: '', avatar: '' }
+const EMPTY: TestimonialInput = { name: '', role: '', role_bs: '', quote: '', quote_bs: '', avatar: '' }
 
 export function TestimonialsManager() {
   const [items, setItems]       = useState<Testimonial[]>([])
@@ -42,7 +42,7 @@ export function TestimonialsManager() {
 
   function openEdit(t: Testimonial) {
     setEditingId(t.id)
-    setForm({ name: t.name, role: t.role, quote: t.quote, quote_bs: t.quote_bs, avatar: t.avatar })
+    setForm({ name: t.name, role: t.role, role_bs: t.role_bs, quote: t.quote, quote_bs: t.quote_bs, avatar: t.avatar })
   }
 
   function closeForm() {
@@ -133,7 +133,7 @@ export function TestimonialsManager() {
                 />
               </div>
               <div>
-                <label className={labelCls}>Role / Session type</label>
+                <label className={labelCls}>Role / Session type – English</label>
                 <input
                   className={inputCls}
                   value={form.role}
@@ -141,6 +141,16 @@ export function TestimonialsManager() {
                   placeholder="Wedding Clients"
                 />
               </div>
+            </div>
+
+            <div>
+              <label className={labelCls}>Role / Session type – Bosnian</label>
+              <input
+                className={inputCls}
+                value={form.role_bs}
+                onChange={e => setForm(f => f && { ...f, role_bs: e.target.value })}
+                placeholder="Vjenčani klijenti"
+              />
             </div>
 
             <div>

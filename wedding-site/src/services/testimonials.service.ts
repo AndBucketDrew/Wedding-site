@@ -27,6 +27,7 @@ function docToTestimonial(id: string, data: DocumentData): Testimonial {
     id,
     name:      data.name      ?? '',
     role:      data.role      ?? '',
+    role_bs:   data.role_bs   ?? '',
     quote:     data.quote     ?? '',
     quote_bs:  data.quote_bs  ?? '',
     avatar:    data.avatar    ?? '',
