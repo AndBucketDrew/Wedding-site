@@ -58,7 +58,7 @@ export async function getPublishedPosts(): Promise<Post[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  const q    = query(postsRef(), where('slug', '==', slug))
+  const q    = query(postsRef(), where('slug', '==', slug), where('status', '==', 'published'))
   const snap = await getDocs(q)
   if (snap.empty) return null
   const d = snap.docs[0]
