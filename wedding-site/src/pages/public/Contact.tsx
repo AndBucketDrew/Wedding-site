@@ -78,8 +78,8 @@ export function Contact() {
             <FadeIn direction="right" delay={0.1}>
               <div className="flex flex-col gap-6">
                 {[
-                  { icon: Mail,   label: t('contact.emailLabel'),    value: 'hello@dzejlan.com' },
-                  { icon: Phone,  label: t('contact.phoneLabel'),    value: '+387 61 000 000' },
+                  { icon: Mail,   label: t('contact.emailLabel'),    value: 'info@halilagicweddings.com' },
+                  { icon: Phone,  label: t('contact.phoneLabel'),    value: '+387 61 068 664 / +387 61 181 644' },
                   { icon: MapPin, label: t('contact.locationLabel'), value: 'Bihać, BiH' },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-center gap-4">

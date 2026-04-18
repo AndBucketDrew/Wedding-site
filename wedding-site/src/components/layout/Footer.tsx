@@ -5,9 +5,9 @@ import { cn } from '@/utils/cn'
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-      <circle cx="12" cy="12" r="4"/>
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
     </svg>
   )
 }
@@ -15,13 +15,14 @@ function InstagramIcon({ className }: { className?: string }) {
 function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
     </svg>
   )
 }
 
 export function Footer() {
   const { t } = useTranslation()
+  const year = new Date().getFullYear()
 
   return (
     <footer className="bg-[#111111] text-white/60 py-16 px-6">
@@ -40,18 +41,21 @@ export function Footer() {
         <div className="flex items-center gap-8">
           <div className="flex flex-col items-start gap-2">
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-white/40 mb-1">{t('footer.contact')}</p>
-            <a href="mailto:placeholder@email.com" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
-              placeholder@email.com
+            <a href="mailto:info@halilagicweddings.com" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
+              info@halilagicweddings.com
             </a>
-            <a href="tel:+000000000" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
-              +000 000 000
+            <a href="tel:+38761068664" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
+              +387 61 068 664
+            </a>
+            <a href="tel:+38761181644" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
+              +387 61 181 644
             </a>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <a href="#" aria-label="Instagram" className="text-white/50 hover:text-gold transition-colors duration-300">
+            <a href="https://www.instagram.com/halilagic.weddings/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/50 hover:text-gold transition-colors duration-300">
               <InstagramIcon className="w-6 h-6" />
             </a>
-            <a href="#" aria-label="Facebook" className="text-white/50 hover:text-gold transition-colors duration-300">
+            <a href="https://www.facebook.com/profile.php?id=61582464824329" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/50 hover:text-gold transition-colors duration-300">
               <FacebookIcon className="w-6 h-6" />
             </a>
           </div>
@@ -59,6 +63,9 @@ export function Footer() {
 
         {/* Copyright */}
         <p className="font-sans text-xs tracking-wider text-white/30">
+        <p className="font-sans text-xs tracking-wider">
+          &copy; {year} Halilagic Weddings. {t('footer.copyright')}
+        </p>
           Site made by{' '}
           <a
             href="https://andrijaturcic.work"
