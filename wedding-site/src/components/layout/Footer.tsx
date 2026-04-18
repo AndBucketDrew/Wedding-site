@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { cn } from '@/utils/cn'
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -29,11 +28,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
 
         {/* Brand */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="h-14 overflow-visible flex items-center">
           <img
             src="/logo.svg"
             alt="Hallači Wedding"
-            className={cn('h-14 w-auto scale-[2.75] invert')}
+            className="h-40 w-auto invert"
           />
         </Link>
 

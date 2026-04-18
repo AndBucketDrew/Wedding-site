@@ -36,12 +36,12 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="h-14 overflow-visible flex items-center">
           <img
             src="/logo.svg"
-            alt="Hallači Wedding"
+            alt="Halilagic Weddings"
             className={cn(
-              'h-14 w-auto scale-[1.4] origin-left transition-all duration-500',
+              'h-20 w-auto transition-all duration-500',
               scrolled ? '' : 'invert',
             )}
           />
