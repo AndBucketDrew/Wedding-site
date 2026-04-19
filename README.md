@@ -1,4 +1,4 @@
-# A Wedding Sitefor client 
+# Wedding Services CMS — React / Firebase
 
 A production-grade wedding services website with a fully integrated CMS admin panel. Built to demonstrate modern React architecture, Firebase BaaS integration, and bilingual content management.
 
@@ -28,7 +28,7 @@ A production-grade wedding services website with a fully integrated CMS admin pa
 ---
 
 ## Architecture
-```
+
 
 All Firebase interactions go through `src/services/` — components never call the SDK directly. Global state (auth session, site images) is managed via React Context and consumed through custom hooks, keeping components decoupled from the data layer.
 
