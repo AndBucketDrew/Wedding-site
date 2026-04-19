@@ -41,9 +41,10 @@ export function Navbar() {
             src="/logo.svg"
             alt="Halilagic Weddings"
             className={cn(
-              'h-20 w-auto transition-all duration-500',
+              'h-24 w-auto transition-all duration-500',
               scrolled ? '' : 'invert',
             )}
+            style={{ imageRendering: '-webkit-optimize-contrast' }}
           />
         </Link>
 
