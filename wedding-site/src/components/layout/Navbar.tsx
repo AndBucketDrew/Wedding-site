@@ -44,7 +44,12 @@ export function Navbar() {
               'h-24 w-auto transition-all duration-500',
               scrolled ? '' : 'invert',
             )}
-            style={{ imageRendering: '-webkit-optimize-contrast' }}
+            style={{
+              imageRendering: '-webkit-optimize-contrast',
+              WebkitTransform: 'translateZ(0)',
+              transform: 'translateZ(0)',
+              WebkitBackfaceVisibility: 'hidden',
+            }}
           />
         </Link>
 
