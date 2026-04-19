@@ -60,7 +60,7 @@
       "packageLabel": "Package",
       "extras": {
         "dron": "Drone",
-        "niski-dim": "Low Fog",
+        "niski-dim": "Dancing on clouds",
         "prskalice": "Sparklers",
         "vatromet": "Fireworks",
         "photobook": "Photobook",
@@ -174,28 +174,28 @@
     "learnMore": "Learn more",
     "items": {
       "niski-dim": {
-        "title": "Low Fog",
+        "title": "Dancing on clouds",
         "description": "A magical low-lying cloud of fog rolls across the dance floor for your first dance, creating a fairytale atmosphere you'll never forget.",
-        "fullDescription": "Our professional low fog machine produces a dense, ground-hugging cloud that stays close to the floor — perfect for your first dance or cake cutting. Unlike standard fog machines, low fog dissipates quickly and doesn't fill the room, keeping visibility clear while giving your photos and video an ethereal, cinematic quality. The effect lasts several minutes and can be repeated throughout the evening.",
+        "fullDescription": "Our professional low fog machine produces a dense, ground-hugging cloud that stays close to the floor, perfect for your first dance or cake cutting. Unlike standard fog machines, low fog dissipates quickly and doesn't fill the room, keeping visibility clear while giving your photos and video an ethereal, cinematic quality. The effect lasts several minutes and can be repeated throughout the evening.",
         "includes": ["Professional low fog machine setup", "Operator present for the full event", "Multiple activations throughout the evening", "Fully captured in your photo & video package"]
       },
       "vatromet": {
         "title": "Fireworks",
-        "description": "Illuminate your celebration with a breathtaking fireworks display — a grand finale that lights up the night sky and every memory.",
-        "fullDescription": "We coordinate and execute stunning fireworks displays tailored to the scale of your event. Whether you're dreaming of an intimate sparkler send-off or a full aerial pyrotechnic show, we handle all logistics, permits, and safety requirements so you can simply enjoy the moment. Every burst is timed to your music and captured in its full glory by our photo and video team.",
-        "includes": ["Full pyrotechnic planning & coordination", "Permit handling", "Timed to your music", "Fully captured in your photo & video package"]
+        "description": "Illuminate your first dance with stunning fire fountains and sparklers, and make your photoshoot unforgettable with a spectacular daytime fireworks display in vivid colours.",
+        "fullDescription": "From the first steps of your dance surrounded by fire sparklers, to a burst of colour at your photoshoot — we turn every moment into an unforgettable image. You choose the colours, arrangement, and duration of the effects; we handle all the organisation and setup. All you have to do is stand in front of the camera, hold each other close, and let the spectacle make your photos truly one of a kind.",
+        "includes": ["Full pyrotechnic planning & coordination", "Timed to your music", "Fully captured in your photo & video package"]
       },
       "photobook": {
         "title": "Photobook",
-        "description": "A luxury printed photobook — a handcrafted keepsake of your most beautiful moments, designed to be passed down through generations.",
-        "fullDescription": "Our photobooks are premium, lay-flat printed albums designed in collaboration with you. Each book is carefully curated from your wedding gallery, featuring the most meaningful images in an elegant, story-driven layout. Printed on archival-quality paper with a hardcover binding, these books are built to last a lifetime and beyond. Available in multiple sizes and finishes.",
-        "includes": ["Collaborative design process", "Archival-quality print", "Lay-flat binding", "Hardcover with personalised title", "Available in multiple sizes"]
+        "description": "A luxury printed photobook, a handcrafted keepsake of your most beautiful moments, designed to be passed down through generations.",
+        "fullDescription": "Our premium photobooks are made for those who refuse to compromise. Sumptuous velvet fabric with a regal look gives every touch a softness and sensuality, transforming your book of memories into a truly luxurious work. Each photobook can be personalised with a unique matching box and a cover engraving made from the same material — a perfect keepsake that speaks to how special that day was to you. Handcrafted construction, premium materials, and attention to every detail make it a lasting memento of the most beautiful day of your life.",
+        "includes": ["Collaborative design process", "Archival-quality print", "Lay-flat binding", "Hardcover with personalised title", "Available in multiple sizes and colours"]
       },
       "lazni-maticar": {
         "title": "Fake Officiant",
-        "description": "A professional actor performs a heartfelt, personalised ceremony — giving you complete creative freedom over your vows and celebration.",
-        "fullDescription": "A fake officiant (lažni matičar) allows couples to have a fully personalised ceremony without the constraints of a legal registration on the day. A professional and experienced actor conducts a real, emotional ceremony — complete with custom vows, readings, and any rituals you wish — while your legal paperwork is handled separately at a time that suits you. This option is popular for destination weddings and couples who want full creative control over their ceremony script.",
-        "includes": ["Experienced professional actor", "Fully personalised ceremony script", "Custom vows & readings", "Rehearsal walkthrough", "Ceremony fully captured in your photo & video package"]
+        "description": "You've already said 'yes' — but why not live it all over again, this time with a full wedding celebration in front of everyone you love?",
+        "fullDescription": "Our officiant will make sure every guest is on the edge of their seat and your eyes fill with happy tears. A perfectly performed ceremony that gives your day real, unforgettable weight — no bureaucracy, just pure emotion.",
+        "includes": ["Experienced professional actor", "Fully personalised ceremony script", "Custom vows & readings", "Personalised wedding certificate", "Ceremony fully captured in your photo & video package"]
       }
     }
   },

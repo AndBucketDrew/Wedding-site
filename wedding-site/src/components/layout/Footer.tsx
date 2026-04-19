@@ -24,7 +24,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-gold text-white/80 py-16 px-6">
+    <footer className="bg-[#EDE0C8] py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
 
         {/* Brand */}
@@ -32,49 +32,48 @@ export function Footer() {
           <img
             src="/logo.svg"
             alt="Hallači Wedding"
-            className="h-40 w-auto invert"
+            className="h-40 w-auto"
           />
         </Link>
 
         {/* Contact + Social */}
         <div className="flex items-center gap-8">
           <div className="flex flex-col items-start gap-2">
-            <p className="font-sans text-xs tracking-[0.2em] uppercase text-white/40 mb-1">{t('footer.contact')}</p>
-            <a href="mailto:info@halilagicweddings.com" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
+            <p className="font-sans text-xs tracking-[0.2em] uppercase text-ink/40 mb-1">{t('footer.contact')}</p>
+            <a href="mailto:info@halilagicweddings.com" className="font-sans text-sm text-ink/60 hover:text-ink transition-colors">
               info@halilagicweddings.com
             </a>
-            <a href="tel:+38761068664" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
+            <a href="tel:+38761068664" className="font-sans text-sm text-ink/60 hover:text-ink transition-colors">
               +387 61 068 664
             </a>
-            <a href="tel:+38761181644" className="font-sans text-sm text-white/70 hover:text-gold transition-colors">
+            <a href="tel:+38761181644" className="font-sans text-sm text-ink/60 hover:text-ink transition-colors">
               +387 61 181 644
             </a>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <a href="https://www.instagram.com/halilagic.weddings/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/50 hover:text-gold transition-colors duration-300">
+            <a href="https://www.instagram.com/halilagic.weddings/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-ink/40 hover:text-ink transition-colors duration-300">
               <InstagramIcon className="w-6 h-6" />
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61582464824329" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white/50 hover:text-gold transition-colors duration-300">
+            <a href="https://www.facebook.com/profile.php?id=61582464824329" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-ink/40 hover:text-ink transition-colors duration-300">
               <FacebookIcon className="w-6 h-6" />
             </a>
           </div>
         </div>
 
         {/* Copyright */}
-        <p className="font-sans text-xs tracking-wider text-white/30">
-        <p className="font-sans text-xs tracking-wider">
-          &copy; {year} Halilagic Weddings. {t('footer.copyright')}
-        </p>
-          Site made by{' '}
-          <a
-            href="https://andrijaturcic.work"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gold transition-colors duration-300"
-          >
-            @andrijaturcic
-          </a>
-        </p>
+        <div className="font-sans text-xs tracking-wider text-ink/40">
+          <p>&copy; {year} Halilagic Weddings. {t('footer.copyright')}</p>
+          <p>Site made by{' '}
+            <a
+              href="https://andrijaturcic.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink transition-colors duration-300"
+            >
+              @andrijaturcic
+            </a>
+          </p>
+        </div>
 
       </div>
     </footer>

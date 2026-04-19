@@ -56,6 +56,14 @@ export interface SiteImages {
   contactStudio:  string
 }
 
+// ─── Service images ───────────────────────────────────────────────────────────
+export type ServiceSlug = 'niski-dim' | 'vatromet' | 'photobook' | 'lazni-maticar'
+
+export interface ServiceImages {
+  heroImage:     string
+  galleryImages: string[]
+}
+
 // ─── Gallery ──────────────────────────────────────────────────────────────────
 export interface GalleryImage {
   id: string

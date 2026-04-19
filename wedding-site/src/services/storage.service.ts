@@ -83,6 +83,44 @@ export async function deleteGalleryImage(url: string): Promise<void> {
 }
 
 /**
+ * Uploads a service image to Firebase Storage under /services/{slug}/{filename}.
+ * Returns the public download URL.
+ * Optional `onProgress` receives 0–100.
+ */
+export function uploadServiceImage(
+  slug: string,
+  file: File,
+  onProgress?: (pct: number) => void,
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const filename   = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`
+    const storageRef = ref(storage, `services/${slug}/${filename}`)
+    const task       = uploadBytesResumable(storageRef, file)
+
+    task.on(
+      'state_changed',
+      snapshot => {
+        const pct = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        onProgress?.(Math.round(pct))
+      },
+      err => reject(err),
+      async () => {
+        const url = await getDownloadURL(task.snapshot.ref)
+        resolve(url)
+      },
+    )
+  })
+}
+
+export async function deleteServiceImage(url: string): Promise<void> {
+  try {
+    await deleteObject(ref(storage, pathFromUrl(url)))
+  } catch {
+    // Already deleted or external URL — ignore
+  }
+}
+
+/**
  * Uploads a site-wide image to Firebase Storage under /site/{key}.
  * Uploading to the same key overwrites the previous file.
  * Returns the public download URL.
